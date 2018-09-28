@@ -17,4 +17,4 @@
 5. Once the Trained Graph is finished, run the following command to use the Trained Graph to identify an image
  `sudo python3 -m scripts.label_image --input_width=${IMAGE_SIZE} --input_height=${IMAGE_SIZE}     --graph=tf_files/retrained_graph.pb      --image=tf_files/flower_photos/daisy/21652746_cc379e0eea_m.jpg`
 
- * The `--image` flag is the directory of the target image to be analyzed
+ * The `--image` flag should point to the target image to be analyzed
