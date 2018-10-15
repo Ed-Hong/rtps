@@ -1,2 +1,3 @@
 tensorflow/tf_files/training_summaries/
+server/api/__pycache__
 *.code-workspace
