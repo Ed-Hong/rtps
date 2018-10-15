@@ -4,3 +4,4 @@ UTDesign Project (Summer 2018 - Fall 2018)
 
 # TODO
 * Install `marshmallow` and create Models
+* Install `mysql-connector` and connect to a local MySQL db instance
