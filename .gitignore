@@ -1,1 +1,2 @@
 tensorflow/tf_files/training_summaries/
+*.code-workspace
