@@ -36,7 +36,7 @@ void loop() {
   delay(10);
 
   while(!done) {
-    String command = "curl -H \"Content-Type: application/json\" -X POST -d '{ \"string\" : \"woeifjwoeijfoweifj \"}' http://192.168.43.24:5000/spots";
+    String command = "curl -H \"Content-Type: application/json\" -X POST -d '{ \"id\" : 100 , \"isFull\" : true , \"string\" : \"some string parameter\"}' http://192.168.43.24:5000/spots";
     
     p.runShellCommand(command);
   
