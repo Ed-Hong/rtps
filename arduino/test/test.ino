@@ -29,6 +29,7 @@ void setup()
   mySerial.println("setpar serlog None");
   mySerial.println("setpar serout All");
   mySerial.println("setpar serstyle Terse");
+  mySerial.println("setpar netdir spots");
 }
 
 void loop()

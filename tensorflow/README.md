@@ -9,7 +9,7 @@
  * IMAGE_SIZE=128 (or whatever image size will be used)
  * ARCHITECTURE="mobilenet_0.50_${IMAGE_SIZE}" (compression factor of 0.5)
 4. Start training:
- `sudo python3 -m scripts.retrain   --bottleneck_dir=tf_files/bottlenecks   --model_dir=tf_files/models/   --summaries_dir=tf_files/training_summaries/"${ARCHITECTURE}"   --output_graph=tf_files/retrained_graph.pb   --output_labels=tf_files/retrained_labels.txt   --architecture="${ARCHITECTURE}"   --image_dir=tf_files/flower_photos`
+ `sudo python3 -m scripts.retrain   --bottleneck_dir=tf_files/bottlenecks   --model_dir=tf_files/models/   --summaries_dir=tf_files/training_summaries/"${ARCHITECTURE}"   --output_graph=tf_files/retrained_graph.pb   --output_labels=tf_files/retrained_labels.txt   --architecture="${ARCHITECTURE}"   --image_dir=tf_files/parking_spots`
 
  * This will create a Trained Graph for the flower photos in the flower_photos directory as demonstrated in 
  https://codelabs.developers.google.com/codelabs/tensorflow-for-poets/#0
