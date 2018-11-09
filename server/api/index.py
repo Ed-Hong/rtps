@@ -1,4 +1,23 @@
 from flask import Flask, jsonify, request
+import mysql.connector
+
+###### Testing MySQL ######
+db = mysql.connector.connect(
+  host="localhost",
+  user="testuser",
+  passwd="testuserpassword123",
+  database="test"
+)
+
+cursor = db.cursor(buffered=True)
+cursor.execute("SELECT * FROM spots")
+
+for (id, isFull, lastUpdated) in cursor:
+  print("Spot {} isFull={} Last Updated on {:%d %b %Y}".format(
+    id, isFull, lastUpdated))
+###### Testing MySQL ######
+
+
 
 app = Flask(__name__)
 
