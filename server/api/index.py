@@ -16,8 +16,10 @@ def api_status():
 def get_spots():
   return jsonify(mock)
 
-# POST endpoint for updating spot statuses
+# POST endpoint for creating new spots
 @app.route('/spots', methods=['POST'])
 def add_spot():
   mock.append(request.get_json())
   return '', 204
+
+# TODO PUT endpoint for updating spot statuses: route='/spots/{spotId}?isFull=true'
