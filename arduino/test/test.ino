@@ -26,10 +26,11 @@ void setup()
    Serial.println("STARTED SER1");
    digitalWrite(LEDPIN, HIGH);
 
+  // these params will have to change to fit the new DetectionDNN module params
   mySerial.println("setpar serlog None");
   mySerial.println("setpar serout All");
-  mySerial.println("setpar serstyle Terse");
-  mySerial.println("setpar netdir spots");
+  mySerial.println("setpar serstyle Normal");
+  //mySerial.println("setpar netdir spots");
 }
 
 void loop()
@@ -38,20 +39,64 @@ void loop()
 
   instr[len] = 0;
   char * tok = strtok(instr, " \r\n");
+
+  
+  // these strcpy()'s seem to be giving trouble - try strncpy() instead
+  // could be because the destination buffer size is too small? --- yeah, okay that was the problem.
+  
+  
+  char str[INLEN];  // Serial Output Style - "N2"
+  strncpy(str, tok, INLEN);
   Serial.print("tok1: ");
-  Serial.println(tok);
+  Serial.println(str);
+  //Serial.println(tok);
   
   tok = strtok(0, " \r\n");
+  char categ[INLEN];  // Object Class / ID with confidence - "car:50"
+  strncpy(categ, tok, INLEN);
   Serial.print("tok2: ");
-  Serial.println(tok);
+  Serial.println(categ);
+  //Serial.println(tok);
+  
+  tok = strtok(0, " \r\n");
+  char xcoord[INLEN];  // Bounding Box x-coordinate
+  strncpy(xcoord, tok, INLEN);
+  Serial.print("tok3: ");
+  Serial.println(xcoord);
+  //Serial.println(tok);
 
-  String category = tok;
+  tok = strtok(0, " \r\n");
+  char ycoord[INLEN];  // Bounding Box y-coordinate
+  strncpy(ycoord, tok, INLEN);
+  Serial.print("tok4: ");
+  Serial.println(ycoord);
+  //Serial.println(tok);
+  
+  Serial.println("--------------------");
 
-  Process p;
-  String command = "curl -H \"Content-Type: application/json\" -X POST -d '{ \"id\" : 100 , \"isFull\" : true , \"topcateg\" : \"" + category + "\"}' http://192.168.43.24:5000/spots";
-  p.runShellCommand(command);
-  while (p.running());
-  delay(5000);
+  // Parse x and y coordinates
+//  int x = atoi(xcoord);
+//  int y = atoi(ycoord);
+//
+//
+//  // Compare x and y coordinates against coordinates of desired spot(s)
+//  int spotX = 225;
+//  int spotY = -147;
+//
+//  int xDiff = abs(spotX - x);
+//  int yDiff = abs(spotY - y);
+//
+//  // Check that the bounding box is within tolerance range
+//  if(xDiff < 10 && yDiff < 10) {
+//    Serial.println("~~~~~ SPOT 1 IS FULL ~~~~~");
+//  }
+  
+  //String category = tok;
+  //Process p;
+  //String command = "curl -H \"Content-Type: application/json\" -X POST -d '{ \"id\" : 100 , \"isFull\" : true , \"topcateg\" : \"" + category + "\"}' http://192.168.43.24:5000/spots";
+  //p.runShellCommand(command);
+  //while (p.running());
+  //delay(5000);
 
 }
 
