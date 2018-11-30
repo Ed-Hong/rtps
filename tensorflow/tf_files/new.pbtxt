@@ -1,0 +1,8441 @@
+node {
+  name: "final_training_ops/biases/final_biases"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "final_training_ops/biases/final_biases/read"
+  op: "Identity"
+  input: "final_training_ops/biases/final_biases"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@final_training_ops/biases/final_biases"
+      }
+    }
+  }
+}
+node {
+  name: "final_training_ops/weights/final_weights"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "final_training_ops/weights/final_weights/read"
+  op: "Identity"
+  input: "final_training_ops/weights/final_weights"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@final_training_ops/weights/final_weights"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Predictions/Reshape/shape"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Logits/Conv2d_1c_1x1/biases"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Logits/Conv2d_1c_1x1/biases/read"
+  op: "Identity"
+  input: "MobilenetV1/Logits/Conv2d_1c_1x1/biases"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Logits/Conv2d_1c_1x1/biases"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Logits/Conv2d_1c_1x1/weights"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Logits/Conv2d_1c_1x1/weights/read"
+  op: "Identity"
+  input: "MobilenetV1/Logits/Conv2d_1c_1x1/weights"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Logits/Conv2d_1c_1x1/weights"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_13_pointwise/BatchNorm/batchnorm/add/y"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_13_pointwise/BatchNorm/moving_variance"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_13_pointwise/BatchNorm/moving_variance/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_13_pointwise/BatchNorm/moving_variance"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_13_pointwise/BatchNorm/moving_variance"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_13_pointwise/BatchNorm/batchnorm/add"
+  op: "Add"
+  input: "MobilenetV1/Conv2d_13_pointwise/BatchNorm/moving_variance/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_13_pointwise/BatchNorm/batchnorm/add/y"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_13_pointwise/BatchNorm/batchnorm/Rsqrt"
+  op: "Rsqrt"
+  input: "MobilenetV1/MobilenetV1/Conv2d_13_pointwise/BatchNorm/batchnorm/add"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_13_pointwise/BatchNorm/moving_mean"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_13_pointwise/BatchNorm/moving_mean/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_13_pointwise/BatchNorm/moving_mean"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_13_pointwise/BatchNorm/moving_mean"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_13_pointwise/BatchNorm/gamma"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_13_pointwise/BatchNorm/gamma/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_13_pointwise/BatchNorm/gamma"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_13_pointwise/BatchNorm/gamma"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_13_pointwise/BatchNorm/batchnorm/mul"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_13_pointwise/BatchNorm/batchnorm/Rsqrt"
+  input: "MobilenetV1/Conv2d_13_pointwise/BatchNorm/gamma/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_13_pointwise/BatchNorm/batchnorm/mul_2"
+  op: "Mul"
+  input: "MobilenetV1/Conv2d_13_pointwise/BatchNorm/moving_mean/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_13_pointwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_13_pointwise/BatchNorm/beta"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_13_pointwise/BatchNorm/beta/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_13_pointwise/BatchNorm/beta"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_13_pointwise/BatchNorm/beta"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_13_pointwise/BatchNorm/batchnorm/sub"
+  op: "Sub"
+  input: "MobilenetV1/Conv2d_13_pointwise/BatchNorm/beta/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_13_pointwise/BatchNorm/batchnorm/mul_2"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_13_pointwise/weights"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_13_pointwise/weights/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_13_pointwise/weights"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_13_pointwise/weights"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_13_depthwise/BatchNorm/batchnorm/add/y"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_13_depthwise/BatchNorm/moving_variance"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_13_depthwise/BatchNorm/moving_variance/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_13_depthwise/BatchNorm/moving_variance"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_13_depthwise/BatchNorm/moving_variance"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_13_depthwise/BatchNorm/batchnorm/add"
+  op: "Add"
+  input: "MobilenetV1/Conv2d_13_depthwise/BatchNorm/moving_variance/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_13_depthwise/BatchNorm/batchnorm/add/y"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_13_depthwise/BatchNorm/batchnorm/Rsqrt"
+  op: "Rsqrt"
+  input: "MobilenetV1/MobilenetV1/Conv2d_13_depthwise/BatchNorm/batchnorm/add"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_13_depthwise/BatchNorm/moving_mean"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_13_depthwise/BatchNorm/moving_mean/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_13_depthwise/BatchNorm/moving_mean"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_13_depthwise/BatchNorm/moving_mean"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_13_depthwise/BatchNorm/gamma"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_13_depthwise/BatchNorm/gamma/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_13_depthwise/BatchNorm/gamma"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_13_depthwise/BatchNorm/gamma"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_13_depthwise/BatchNorm/batchnorm/mul"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_13_depthwise/BatchNorm/batchnorm/Rsqrt"
+  input: "MobilenetV1/Conv2d_13_depthwise/BatchNorm/gamma/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_13_depthwise/BatchNorm/batchnorm/mul_2"
+  op: "Mul"
+  input: "MobilenetV1/Conv2d_13_depthwise/BatchNorm/moving_mean/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_13_depthwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_13_depthwise/BatchNorm/beta"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_13_depthwise/BatchNorm/beta/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_13_depthwise/BatchNorm/beta"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_13_depthwise/BatchNorm/beta"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_13_depthwise/BatchNorm/batchnorm/sub"
+  op: "Sub"
+  input: "MobilenetV1/Conv2d_13_depthwise/BatchNorm/beta/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_13_depthwise/BatchNorm/batchnorm/mul_2"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_13_depthwise/depthwise_weights"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_13_depthwise/depthwise_weights/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_13_depthwise/depthwise_weights"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_13_depthwise/depthwise_weights"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_12_pointwise/BatchNorm/batchnorm/add/y"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_12_pointwise/BatchNorm/moving_variance"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_12_pointwise/BatchNorm/moving_variance/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_12_pointwise/BatchNorm/moving_variance"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_12_pointwise/BatchNorm/moving_variance"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_12_pointwise/BatchNorm/batchnorm/add"
+  op: "Add"
+  input: "MobilenetV1/Conv2d_12_pointwise/BatchNorm/moving_variance/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_12_pointwise/BatchNorm/batchnorm/add/y"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_12_pointwise/BatchNorm/batchnorm/Rsqrt"
+  op: "Rsqrt"
+  input: "MobilenetV1/MobilenetV1/Conv2d_12_pointwise/BatchNorm/batchnorm/add"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_12_pointwise/BatchNorm/moving_mean"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_12_pointwise/BatchNorm/moving_mean/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_12_pointwise/BatchNorm/moving_mean"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_12_pointwise/BatchNorm/moving_mean"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_12_pointwise/BatchNorm/gamma"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_12_pointwise/BatchNorm/gamma/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_12_pointwise/BatchNorm/gamma"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_12_pointwise/BatchNorm/gamma"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_12_pointwise/BatchNorm/batchnorm/mul"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_12_pointwise/BatchNorm/batchnorm/Rsqrt"
+  input: "MobilenetV1/Conv2d_12_pointwise/BatchNorm/gamma/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_12_pointwise/BatchNorm/batchnorm/mul_2"
+  op: "Mul"
+  input: "MobilenetV1/Conv2d_12_pointwise/BatchNorm/moving_mean/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_12_pointwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_12_pointwise/BatchNorm/beta"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_12_pointwise/BatchNorm/beta/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_12_pointwise/BatchNorm/beta"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_12_pointwise/BatchNorm/beta"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_12_pointwise/BatchNorm/batchnorm/sub"
+  op: "Sub"
+  input: "MobilenetV1/Conv2d_12_pointwise/BatchNorm/beta/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_12_pointwise/BatchNorm/batchnorm/mul_2"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_12_pointwise/weights"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_12_pointwise/weights/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_12_pointwise/weights"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_12_pointwise/weights"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_12_depthwise/BatchNorm/batchnorm/add/y"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_12_depthwise/BatchNorm/moving_variance"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_12_depthwise/BatchNorm/moving_variance/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_12_depthwise/BatchNorm/moving_variance"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_12_depthwise/BatchNorm/moving_variance"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_12_depthwise/BatchNorm/batchnorm/add"
+  op: "Add"
+  input: "MobilenetV1/Conv2d_12_depthwise/BatchNorm/moving_variance/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_12_depthwise/BatchNorm/batchnorm/add/y"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_12_depthwise/BatchNorm/batchnorm/Rsqrt"
+  op: "Rsqrt"
+  input: "MobilenetV1/MobilenetV1/Conv2d_12_depthwise/BatchNorm/batchnorm/add"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_12_depthwise/BatchNorm/moving_mean"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_12_depthwise/BatchNorm/moving_mean/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_12_depthwise/BatchNorm/moving_mean"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_12_depthwise/BatchNorm/moving_mean"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_12_depthwise/BatchNorm/gamma"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_12_depthwise/BatchNorm/gamma/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_12_depthwise/BatchNorm/gamma"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_12_depthwise/BatchNorm/gamma"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_12_depthwise/BatchNorm/batchnorm/mul"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_12_depthwise/BatchNorm/batchnorm/Rsqrt"
+  input: "MobilenetV1/Conv2d_12_depthwise/BatchNorm/gamma/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_12_depthwise/BatchNorm/batchnorm/mul_2"
+  op: "Mul"
+  input: "MobilenetV1/Conv2d_12_depthwise/BatchNorm/moving_mean/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_12_depthwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_12_depthwise/BatchNorm/beta"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_12_depthwise/BatchNorm/beta/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_12_depthwise/BatchNorm/beta"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_12_depthwise/BatchNorm/beta"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_12_depthwise/BatchNorm/batchnorm/sub"
+  op: "Sub"
+  input: "MobilenetV1/Conv2d_12_depthwise/BatchNorm/beta/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_12_depthwise/BatchNorm/batchnorm/mul_2"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_12_depthwise/depthwise_weights"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_12_depthwise/depthwise_weights/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_12_depthwise/depthwise_weights"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_12_depthwise/depthwise_weights"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_11_pointwise/BatchNorm/batchnorm/add/y"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_11_pointwise/BatchNorm/moving_variance"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_11_pointwise/BatchNorm/moving_variance/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_11_pointwise/BatchNorm/moving_variance"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_11_pointwise/BatchNorm/moving_variance"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_11_pointwise/BatchNorm/batchnorm/add"
+  op: "Add"
+  input: "MobilenetV1/Conv2d_11_pointwise/BatchNorm/moving_variance/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_11_pointwise/BatchNorm/batchnorm/add/y"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_11_pointwise/BatchNorm/batchnorm/Rsqrt"
+  op: "Rsqrt"
+  input: "MobilenetV1/MobilenetV1/Conv2d_11_pointwise/BatchNorm/batchnorm/add"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_11_pointwise/BatchNorm/moving_mean"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_11_pointwise/BatchNorm/moving_mean/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_11_pointwise/BatchNorm/moving_mean"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_11_pointwise/BatchNorm/moving_mean"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_11_pointwise/BatchNorm/gamma"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_11_pointwise/BatchNorm/gamma/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_11_pointwise/BatchNorm/gamma"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_11_pointwise/BatchNorm/gamma"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_11_pointwise/BatchNorm/batchnorm/mul"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_11_pointwise/BatchNorm/batchnorm/Rsqrt"
+  input: "MobilenetV1/Conv2d_11_pointwise/BatchNorm/gamma/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_11_pointwise/BatchNorm/batchnorm/mul_2"
+  op: "Mul"
+  input: "MobilenetV1/Conv2d_11_pointwise/BatchNorm/moving_mean/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_11_pointwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_11_pointwise/BatchNorm/beta"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_11_pointwise/BatchNorm/beta/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_11_pointwise/BatchNorm/beta"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_11_pointwise/BatchNorm/beta"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_11_pointwise/BatchNorm/batchnorm/sub"
+  op: "Sub"
+  input: "MobilenetV1/Conv2d_11_pointwise/BatchNorm/beta/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_11_pointwise/BatchNorm/batchnorm/mul_2"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_11_pointwise/weights"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_11_pointwise/weights/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_11_pointwise/weights"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_11_pointwise/weights"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_11_depthwise/BatchNorm/batchnorm/add/y"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_11_depthwise/BatchNorm/moving_variance"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_11_depthwise/BatchNorm/moving_variance/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_11_depthwise/BatchNorm/moving_variance"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_11_depthwise/BatchNorm/moving_variance"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_11_depthwise/BatchNorm/batchnorm/add"
+  op: "Add"
+  input: "MobilenetV1/Conv2d_11_depthwise/BatchNorm/moving_variance/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_11_depthwise/BatchNorm/batchnorm/add/y"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_11_depthwise/BatchNorm/batchnorm/Rsqrt"
+  op: "Rsqrt"
+  input: "MobilenetV1/MobilenetV1/Conv2d_11_depthwise/BatchNorm/batchnorm/add"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_11_depthwise/BatchNorm/moving_mean"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_11_depthwise/BatchNorm/moving_mean/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_11_depthwise/BatchNorm/moving_mean"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_11_depthwise/BatchNorm/moving_mean"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_11_depthwise/BatchNorm/gamma"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_11_depthwise/BatchNorm/gamma/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_11_depthwise/BatchNorm/gamma"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_11_depthwise/BatchNorm/gamma"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_11_depthwise/BatchNorm/batchnorm/mul"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_11_depthwise/BatchNorm/batchnorm/Rsqrt"
+  input: "MobilenetV1/Conv2d_11_depthwise/BatchNorm/gamma/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_11_depthwise/BatchNorm/batchnorm/mul_2"
+  op: "Mul"
+  input: "MobilenetV1/Conv2d_11_depthwise/BatchNorm/moving_mean/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_11_depthwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_11_depthwise/BatchNorm/beta"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_11_depthwise/BatchNorm/beta/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_11_depthwise/BatchNorm/beta"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_11_depthwise/BatchNorm/beta"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_11_depthwise/BatchNorm/batchnorm/sub"
+  op: "Sub"
+  input: "MobilenetV1/Conv2d_11_depthwise/BatchNorm/beta/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_11_depthwise/BatchNorm/batchnorm/mul_2"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_11_depthwise/depthwise_weights"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_11_depthwise/depthwise_weights/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_11_depthwise/depthwise_weights"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_11_depthwise/depthwise_weights"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_10_pointwise/BatchNorm/batchnorm/add/y"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_10_pointwise/BatchNorm/moving_variance"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_10_pointwise/BatchNorm/moving_variance/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_10_pointwise/BatchNorm/moving_variance"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_10_pointwise/BatchNorm/moving_variance"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_10_pointwise/BatchNorm/batchnorm/add"
+  op: "Add"
+  input: "MobilenetV1/Conv2d_10_pointwise/BatchNorm/moving_variance/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_10_pointwise/BatchNorm/batchnorm/add/y"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_10_pointwise/BatchNorm/batchnorm/Rsqrt"
+  op: "Rsqrt"
+  input: "MobilenetV1/MobilenetV1/Conv2d_10_pointwise/BatchNorm/batchnorm/add"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_10_pointwise/BatchNorm/moving_mean"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_10_pointwise/BatchNorm/moving_mean/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_10_pointwise/BatchNorm/moving_mean"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_10_pointwise/BatchNorm/moving_mean"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_10_pointwise/BatchNorm/gamma"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_10_pointwise/BatchNorm/gamma/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_10_pointwise/BatchNorm/gamma"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_10_pointwise/BatchNorm/gamma"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_10_pointwise/BatchNorm/batchnorm/mul"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_10_pointwise/BatchNorm/batchnorm/Rsqrt"
+  input: "MobilenetV1/Conv2d_10_pointwise/BatchNorm/gamma/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_10_pointwise/BatchNorm/batchnorm/mul_2"
+  op: "Mul"
+  input: "MobilenetV1/Conv2d_10_pointwise/BatchNorm/moving_mean/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_10_pointwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_10_pointwise/BatchNorm/beta"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_10_pointwise/BatchNorm/beta/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_10_pointwise/BatchNorm/beta"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_10_pointwise/BatchNorm/beta"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_10_pointwise/BatchNorm/batchnorm/sub"
+  op: "Sub"
+  input: "MobilenetV1/Conv2d_10_pointwise/BatchNorm/beta/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_10_pointwise/BatchNorm/batchnorm/mul_2"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_10_pointwise/weights"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_10_pointwise/weights/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_10_pointwise/weights"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_10_pointwise/weights"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_10_depthwise/BatchNorm/batchnorm/add/y"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_10_depthwise/BatchNorm/moving_variance"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_10_depthwise/BatchNorm/moving_variance/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_10_depthwise/BatchNorm/moving_variance"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_10_depthwise/BatchNorm/moving_variance"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_10_depthwise/BatchNorm/batchnorm/add"
+  op: "Add"
+  input: "MobilenetV1/Conv2d_10_depthwise/BatchNorm/moving_variance/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_10_depthwise/BatchNorm/batchnorm/add/y"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_10_depthwise/BatchNorm/batchnorm/Rsqrt"
+  op: "Rsqrt"
+  input: "MobilenetV1/MobilenetV1/Conv2d_10_depthwise/BatchNorm/batchnorm/add"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_10_depthwise/BatchNorm/moving_mean"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_10_depthwise/BatchNorm/moving_mean/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_10_depthwise/BatchNorm/moving_mean"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_10_depthwise/BatchNorm/moving_mean"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_10_depthwise/BatchNorm/gamma"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_10_depthwise/BatchNorm/gamma/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_10_depthwise/BatchNorm/gamma"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_10_depthwise/BatchNorm/gamma"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_10_depthwise/BatchNorm/batchnorm/mul"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_10_depthwise/BatchNorm/batchnorm/Rsqrt"
+  input: "MobilenetV1/Conv2d_10_depthwise/BatchNorm/gamma/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_10_depthwise/BatchNorm/batchnorm/mul_2"
+  op: "Mul"
+  input: "MobilenetV1/Conv2d_10_depthwise/BatchNorm/moving_mean/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_10_depthwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_10_depthwise/BatchNorm/beta"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_10_depthwise/BatchNorm/beta/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_10_depthwise/BatchNorm/beta"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_10_depthwise/BatchNorm/beta"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_10_depthwise/BatchNorm/batchnorm/sub"
+  op: "Sub"
+  input: "MobilenetV1/Conv2d_10_depthwise/BatchNorm/beta/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_10_depthwise/BatchNorm/batchnorm/mul_2"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_10_depthwise/depthwise_weights"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_10_depthwise/depthwise_weights/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_10_depthwise/depthwise_weights"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_10_depthwise/depthwise_weights"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_9_pointwise/BatchNorm/batchnorm/add/y"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_9_pointwise/BatchNorm/moving_variance"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_9_pointwise/BatchNorm/moving_variance/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_9_pointwise/BatchNorm/moving_variance"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_9_pointwise/BatchNorm/moving_variance"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_9_pointwise/BatchNorm/batchnorm/add"
+  op: "Add"
+  input: "MobilenetV1/Conv2d_9_pointwise/BatchNorm/moving_variance/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_9_pointwise/BatchNorm/batchnorm/add/y"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_9_pointwise/BatchNorm/batchnorm/Rsqrt"
+  op: "Rsqrt"
+  input: "MobilenetV1/MobilenetV1/Conv2d_9_pointwise/BatchNorm/batchnorm/add"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_9_pointwise/BatchNorm/moving_mean"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_9_pointwise/BatchNorm/moving_mean/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_9_pointwise/BatchNorm/moving_mean"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_9_pointwise/BatchNorm/moving_mean"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_9_pointwise/BatchNorm/gamma"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_9_pointwise/BatchNorm/gamma/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_9_pointwise/BatchNorm/gamma"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_9_pointwise/BatchNorm/gamma"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_9_pointwise/BatchNorm/batchnorm/mul"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_9_pointwise/BatchNorm/batchnorm/Rsqrt"
+  input: "MobilenetV1/Conv2d_9_pointwise/BatchNorm/gamma/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_9_pointwise/BatchNorm/batchnorm/mul_2"
+  op: "Mul"
+  input: "MobilenetV1/Conv2d_9_pointwise/BatchNorm/moving_mean/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_9_pointwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_9_pointwise/BatchNorm/beta"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_9_pointwise/BatchNorm/beta/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_9_pointwise/BatchNorm/beta"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_9_pointwise/BatchNorm/beta"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_9_pointwise/BatchNorm/batchnorm/sub"
+  op: "Sub"
+  input: "MobilenetV1/Conv2d_9_pointwise/BatchNorm/beta/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_9_pointwise/BatchNorm/batchnorm/mul_2"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_9_pointwise/weights"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_9_pointwise/weights/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_9_pointwise/weights"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_9_pointwise/weights"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_9_depthwise/BatchNorm/batchnorm/add/y"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_9_depthwise/BatchNorm/moving_variance"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_9_depthwise/BatchNorm/moving_variance/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_9_depthwise/BatchNorm/moving_variance"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_9_depthwise/BatchNorm/moving_variance"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_9_depthwise/BatchNorm/batchnorm/add"
+  op: "Add"
+  input: "MobilenetV1/Conv2d_9_depthwise/BatchNorm/moving_variance/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_9_depthwise/BatchNorm/batchnorm/add/y"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_9_depthwise/BatchNorm/batchnorm/Rsqrt"
+  op: "Rsqrt"
+  input: "MobilenetV1/MobilenetV1/Conv2d_9_depthwise/BatchNorm/batchnorm/add"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_9_depthwise/BatchNorm/moving_mean"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_9_depthwise/BatchNorm/moving_mean/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_9_depthwise/BatchNorm/moving_mean"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_9_depthwise/BatchNorm/moving_mean"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_9_depthwise/BatchNorm/gamma"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_9_depthwise/BatchNorm/gamma/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_9_depthwise/BatchNorm/gamma"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_9_depthwise/BatchNorm/gamma"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_9_depthwise/BatchNorm/batchnorm/mul"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_9_depthwise/BatchNorm/batchnorm/Rsqrt"
+  input: "MobilenetV1/Conv2d_9_depthwise/BatchNorm/gamma/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_9_depthwise/BatchNorm/batchnorm/mul_2"
+  op: "Mul"
+  input: "MobilenetV1/Conv2d_9_depthwise/BatchNorm/moving_mean/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_9_depthwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_9_depthwise/BatchNorm/beta"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_9_depthwise/BatchNorm/beta/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_9_depthwise/BatchNorm/beta"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_9_depthwise/BatchNorm/beta"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_9_depthwise/BatchNorm/batchnorm/sub"
+  op: "Sub"
+  input: "MobilenetV1/Conv2d_9_depthwise/BatchNorm/beta/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_9_depthwise/BatchNorm/batchnorm/mul_2"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_9_depthwise/depthwise_weights"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_9_depthwise/depthwise_weights/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_9_depthwise/depthwise_weights"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_9_depthwise/depthwise_weights"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_8_pointwise/BatchNorm/batchnorm/add/y"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_8_pointwise/BatchNorm/moving_variance"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_8_pointwise/BatchNorm/moving_variance/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_8_pointwise/BatchNorm/moving_variance"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_8_pointwise/BatchNorm/moving_variance"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_8_pointwise/BatchNorm/batchnorm/add"
+  op: "Add"
+  input: "MobilenetV1/Conv2d_8_pointwise/BatchNorm/moving_variance/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_8_pointwise/BatchNorm/batchnorm/add/y"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_8_pointwise/BatchNorm/batchnorm/Rsqrt"
+  op: "Rsqrt"
+  input: "MobilenetV1/MobilenetV1/Conv2d_8_pointwise/BatchNorm/batchnorm/add"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_8_pointwise/BatchNorm/moving_mean"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_8_pointwise/BatchNorm/moving_mean/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_8_pointwise/BatchNorm/moving_mean"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_8_pointwise/BatchNorm/moving_mean"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_8_pointwise/BatchNorm/gamma"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_8_pointwise/BatchNorm/gamma/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_8_pointwise/BatchNorm/gamma"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_8_pointwise/BatchNorm/gamma"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_8_pointwise/BatchNorm/batchnorm/mul"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_8_pointwise/BatchNorm/batchnorm/Rsqrt"
+  input: "MobilenetV1/Conv2d_8_pointwise/BatchNorm/gamma/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_8_pointwise/BatchNorm/batchnorm/mul_2"
+  op: "Mul"
+  input: "MobilenetV1/Conv2d_8_pointwise/BatchNorm/moving_mean/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_8_pointwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_8_pointwise/BatchNorm/beta"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_8_pointwise/BatchNorm/beta/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_8_pointwise/BatchNorm/beta"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_8_pointwise/BatchNorm/beta"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_8_pointwise/BatchNorm/batchnorm/sub"
+  op: "Sub"
+  input: "MobilenetV1/Conv2d_8_pointwise/BatchNorm/beta/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_8_pointwise/BatchNorm/batchnorm/mul_2"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_8_pointwise/weights"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_8_pointwise/weights/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_8_pointwise/weights"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_8_pointwise/weights"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_8_depthwise/BatchNorm/batchnorm/add/y"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_8_depthwise/BatchNorm/moving_variance"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_8_depthwise/BatchNorm/moving_variance/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_8_depthwise/BatchNorm/moving_variance"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_8_depthwise/BatchNorm/moving_variance"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_8_depthwise/BatchNorm/batchnorm/add"
+  op: "Add"
+  input: "MobilenetV1/Conv2d_8_depthwise/BatchNorm/moving_variance/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_8_depthwise/BatchNorm/batchnorm/add/y"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_8_depthwise/BatchNorm/batchnorm/Rsqrt"
+  op: "Rsqrt"
+  input: "MobilenetV1/MobilenetV1/Conv2d_8_depthwise/BatchNorm/batchnorm/add"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_8_depthwise/BatchNorm/moving_mean"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_8_depthwise/BatchNorm/moving_mean/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_8_depthwise/BatchNorm/moving_mean"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_8_depthwise/BatchNorm/moving_mean"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_8_depthwise/BatchNorm/gamma"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_8_depthwise/BatchNorm/gamma/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_8_depthwise/BatchNorm/gamma"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_8_depthwise/BatchNorm/gamma"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_8_depthwise/BatchNorm/batchnorm/mul"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_8_depthwise/BatchNorm/batchnorm/Rsqrt"
+  input: "MobilenetV1/Conv2d_8_depthwise/BatchNorm/gamma/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_8_depthwise/BatchNorm/batchnorm/mul_2"
+  op: "Mul"
+  input: "MobilenetV1/Conv2d_8_depthwise/BatchNorm/moving_mean/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_8_depthwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_8_depthwise/BatchNorm/beta"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_8_depthwise/BatchNorm/beta/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_8_depthwise/BatchNorm/beta"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_8_depthwise/BatchNorm/beta"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_8_depthwise/BatchNorm/batchnorm/sub"
+  op: "Sub"
+  input: "MobilenetV1/Conv2d_8_depthwise/BatchNorm/beta/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_8_depthwise/BatchNorm/batchnorm/mul_2"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_8_depthwise/depthwise_weights"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_8_depthwise/depthwise_weights/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_8_depthwise/depthwise_weights"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_8_depthwise/depthwise_weights"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_7_pointwise/BatchNorm/batchnorm/add/y"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_7_pointwise/BatchNorm/moving_variance"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_7_pointwise/BatchNorm/moving_variance/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_7_pointwise/BatchNorm/moving_variance"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_7_pointwise/BatchNorm/moving_variance"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_7_pointwise/BatchNorm/batchnorm/add"
+  op: "Add"
+  input: "MobilenetV1/Conv2d_7_pointwise/BatchNorm/moving_variance/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_7_pointwise/BatchNorm/batchnorm/add/y"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_7_pointwise/BatchNorm/batchnorm/Rsqrt"
+  op: "Rsqrt"
+  input: "MobilenetV1/MobilenetV1/Conv2d_7_pointwise/BatchNorm/batchnorm/add"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_7_pointwise/BatchNorm/moving_mean"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_7_pointwise/BatchNorm/moving_mean/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_7_pointwise/BatchNorm/moving_mean"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_7_pointwise/BatchNorm/moving_mean"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_7_pointwise/BatchNorm/gamma"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_7_pointwise/BatchNorm/gamma/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_7_pointwise/BatchNorm/gamma"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_7_pointwise/BatchNorm/gamma"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_7_pointwise/BatchNorm/batchnorm/mul"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_7_pointwise/BatchNorm/batchnorm/Rsqrt"
+  input: "MobilenetV1/Conv2d_7_pointwise/BatchNorm/gamma/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_7_pointwise/BatchNorm/batchnorm/mul_2"
+  op: "Mul"
+  input: "MobilenetV1/Conv2d_7_pointwise/BatchNorm/moving_mean/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_7_pointwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_7_pointwise/BatchNorm/beta"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_7_pointwise/BatchNorm/beta/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_7_pointwise/BatchNorm/beta"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_7_pointwise/BatchNorm/beta"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_7_pointwise/BatchNorm/batchnorm/sub"
+  op: "Sub"
+  input: "MobilenetV1/Conv2d_7_pointwise/BatchNorm/beta/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_7_pointwise/BatchNorm/batchnorm/mul_2"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_7_pointwise/weights"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_7_pointwise/weights/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_7_pointwise/weights"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_7_pointwise/weights"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_7_depthwise/BatchNorm/batchnorm/add/y"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_7_depthwise/BatchNorm/moving_variance"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_7_depthwise/BatchNorm/moving_variance/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_7_depthwise/BatchNorm/moving_variance"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_7_depthwise/BatchNorm/moving_variance"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_7_depthwise/BatchNorm/batchnorm/add"
+  op: "Add"
+  input: "MobilenetV1/Conv2d_7_depthwise/BatchNorm/moving_variance/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_7_depthwise/BatchNorm/batchnorm/add/y"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_7_depthwise/BatchNorm/batchnorm/Rsqrt"
+  op: "Rsqrt"
+  input: "MobilenetV1/MobilenetV1/Conv2d_7_depthwise/BatchNorm/batchnorm/add"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_7_depthwise/BatchNorm/moving_mean"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_7_depthwise/BatchNorm/moving_mean/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_7_depthwise/BatchNorm/moving_mean"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_7_depthwise/BatchNorm/moving_mean"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_7_depthwise/BatchNorm/gamma"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_7_depthwise/BatchNorm/gamma/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_7_depthwise/BatchNorm/gamma"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_7_depthwise/BatchNorm/gamma"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_7_depthwise/BatchNorm/batchnorm/mul"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_7_depthwise/BatchNorm/batchnorm/Rsqrt"
+  input: "MobilenetV1/Conv2d_7_depthwise/BatchNorm/gamma/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_7_depthwise/BatchNorm/batchnorm/mul_2"
+  op: "Mul"
+  input: "MobilenetV1/Conv2d_7_depthwise/BatchNorm/moving_mean/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_7_depthwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_7_depthwise/BatchNorm/beta"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_7_depthwise/BatchNorm/beta/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_7_depthwise/BatchNorm/beta"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_7_depthwise/BatchNorm/beta"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_7_depthwise/BatchNorm/batchnorm/sub"
+  op: "Sub"
+  input: "MobilenetV1/Conv2d_7_depthwise/BatchNorm/beta/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_7_depthwise/BatchNorm/batchnorm/mul_2"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_7_depthwise/depthwise_weights"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_7_depthwise/depthwise_weights/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_7_depthwise/depthwise_weights"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_7_depthwise/depthwise_weights"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_6_pointwise/BatchNorm/batchnorm/add/y"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_6_pointwise/BatchNorm/moving_variance"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_6_pointwise/BatchNorm/moving_variance/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_6_pointwise/BatchNorm/moving_variance"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_6_pointwise/BatchNorm/moving_variance"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_6_pointwise/BatchNorm/batchnorm/add"
+  op: "Add"
+  input: "MobilenetV1/Conv2d_6_pointwise/BatchNorm/moving_variance/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_6_pointwise/BatchNorm/batchnorm/add/y"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_6_pointwise/BatchNorm/batchnorm/Rsqrt"
+  op: "Rsqrt"
+  input: "MobilenetV1/MobilenetV1/Conv2d_6_pointwise/BatchNorm/batchnorm/add"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_6_pointwise/BatchNorm/moving_mean"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_6_pointwise/BatchNorm/moving_mean/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_6_pointwise/BatchNorm/moving_mean"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_6_pointwise/BatchNorm/moving_mean"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_6_pointwise/BatchNorm/gamma"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_6_pointwise/BatchNorm/gamma/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_6_pointwise/BatchNorm/gamma"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_6_pointwise/BatchNorm/gamma"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_6_pointwise/BatchNorm/batchnorm/mul"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_6_pointwise/BatchNorm/batchnorm/Rsqrt"
+  input: "MobilenetV1/Conv2d_6_pointwise/BatchNorm/gamma/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_6_pointwise/BatchNorm/batchnorm/mul_2"
+  op: "Mul"
+  input: "MobilenetV1/Conv2d_6_pointwise/BatchNorm/moving_mean/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_6_pointwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_6_pointwise/BatchNorm/beta"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_6_pointwise/BatchNorm/beta/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_6_pointwise/BatchNorm/beta"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_6_pointwise/BatchNorm/beta"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_6_pointwise/BatchNorm/batchnorm/sub"
+  op: "Sub"
+  input: "MobilenetV1/Conv2d_6_pointwise/BatchNorm/beta/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_6_pointwise/BatchNorm/batchnorm/mul_2"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_6_pointwise/weights"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_6_pointwise/weights/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_6_pointwise/weights"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_6_pointwise/weights"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_6_depthwise/BatchNorm/batchnorm/add/y"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_6_depthwise/BatchNorm/moving_variance"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_6_depthwise/BatchNorm/moving_variance/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_6_depthwise/BatchNorm/moving_variance"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_6_depthwise/BatchNorm/moving_variance"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_6_depthwise/BatchNorm/batchnorm/add"
+  op: "Add"
+  input: "MobilenetV1/Conv2d_6_depthwise/BatchNorm/moving_variance/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_6_depthwise/BatchNorm/batchnorm/add/y"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_6_depthwise/BatchNorm/batchnorm/Rsqrt"
+  op: "Rsqrt"
+  input: "MobilenetV1/MobilenetV1/Conv2d_6_depthwise/BatchNorm/batchnorm/add"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_6_depthwise/BatchNorm/moving_mean"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_6_depthwise/BatchNorm/moving_mean/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_6_depthwise/BatchNorm/moving_mean"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_6_depthwise/BatchNorm/moving_mean"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_6_depthwise/BatchNorm/gamma"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_6_depthwise/BatchNorm/gamma/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_6_depthwise/BatchNorm/gamma"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_6_depthwise/BatchNorm/gamma"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_6_depthwise/BatchNorm/batchnorm/mul"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_6_depthwise/BatchNorm/batchnorm/Rsqrt"
+  input: "MobilenetV1/Conv2d_6_depthwise/BatchNorm/gamma/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_6_depthwise/BatchNorm/batchnorm/mul_2"
+  op: "Mul"
+  input: "MobilenetV1/Conv2d_6_depthwise/BatchNorm/moving_mean/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_6_depthwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_6_depthwise/BatchNorm/beta"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_6_depthwise/BatchNorm/beta/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_6_depthwise/BatchNorm/beta"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_6_depthwise/BatchNorm/beta"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_6_depthwise/BatchNorm/batchnorm/sub"
+  op: "Sub"
+  input: "MobilenetV1/Conv2d_6_depthwise/BatchNorm/beta/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_6_depthwise/BatchNorm/batchnorm/mul_2"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_6_depthwise/depthwise_weights"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_6_depthwise/depthwise_weights/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_6_depthwise/depthwise_weights"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_6_depthwise/depthwise_weights"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_5_pointwise/BatchNorm/batchnorm/add/y"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_5_pointwise/BatchNorm/moving_variance"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_5_pointwise/BatchNorm/moving_variance/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_5_pointwise/BatchNorm/moving_variance"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_5_pointwise/BatchNorm/moving_variance"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_5_pointwise/BatchNorm/batchnorm/add"
+  op: "Add"
+  input: "MobilenetV1/Conv2d_5_pointwise/BatchNorm/moving_variance/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_5_pointwise/BatchNorm/batchnorm/add/y"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_5_pointwise/BatchNorm/batchnorm/Rsqrt"
+  op: "Rsqrt"
+  input: "MobilenetV1/MobilenetV1/Conv2d_5_pointwise/BatchNorm/batchnorm/add"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_5_pointwise/BatchNorm/moving_mean"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_5_pointwise/BatchNorm/moving_mean/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_5_pointwise/BatchNorm/moving_mean"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_5_pointwise/BatchNorm/moving_mean"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_5_pointwise/BatchNorm/gamma"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_5_pointwise/BatchNorm/gamma/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_5_pointwise/BatchNorm/gamma"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_5_pointwise/BatchNorm/gamma"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_5_pointwise/BatchNorm/batchnorm/mul"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_5_pointwise/BatchNorm/batchnorm/Rsqrt"
+  input: "MobilenetV1/Conv2d_5_pointwise/BatchNorm/gamma/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_5_pointwise/BatchNorm/batchnorm/mul_2"
+  op: "Mul"
+  input: "MobilenetV1/Conv2d_5_pointwise/BatchNorm/moving_mean/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_5_pointwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_5_pointwise/BatchNorm/beta"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_5_pointwise/BatchNorm/beta/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_5_pointwise/BatchNorm/beta"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_5_pointwise/BatchNorm/beta"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_5_pointwise/BatchNorm/batchnorm/sub"
+  op: "Sub"
+  input: "MobilenetV1/Conv2d_5_pointwise/BatchNorm/beta/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_5_pointwise/BatchNorm/batchnorm/mul_2"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_5_pointwise/weights"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_5_pointwise/weights/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_5_pointwise/weights"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_5_pointwise/weights"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_5_depthwise/BatchNorm/batchnorm/add/y"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_5_depthwise/BatchNorm/moving_variance"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_5_depthwise/BatchNorm/moving_variance/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_5_depthwise/BatchNorm/moving_variance"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_5_depthwise/BatchNorm/moving_variance"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_5_depthwise/BatchNorm/batchnorm/add"
+  op: "Add"
+  input: "MobilenetV1/Conv2d_5_depthwise/BatchNorm/moving_variance/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_5_depthwise/BatchNorm/batchnorm/add/y"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_5_depthwise/BatchNorm/batchnorm/Rsqrt"
+  op: "Rsqrt"
+  input: "MobilenetV1/MobilenetV1/Conv2d_5_depthwise/BatchNorm/batchnorm/add"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_5_depthwise/BatchNorm/moving_mean"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_5_depthwise/BatchNorm/moving_mean/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_5_depthwise/BatchNorm/moving_mean"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_5_depthwise/BatchNorm/moving_mean"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_5_depthwise/BatchNorm/gamma"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_5_depthwise/BatchNorm/gamma/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_5_depthwise/BatchNorm/gamma"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_5_depthwise/BatchNorm/gamma"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_5_depthwise/BatchNorm/batchnorm/mul"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_5_depthwise/BatchNorm/batchnorm/Rsqrt"
+  input: "MobilenetV1/Conv2d_5_depthwise/BatchNorm/gamma/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_5_depthwise/BatchNorm/batchnorm/mul_2"
+  op: "Mul"
+  input: "MobilenetV1/Conv2d_5_depthwise/BatchNorm/moving_mean/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_5_depthwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_5_depthwise/BatchNorm/beta"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_5_depthwise/BatchNorm/beta/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_5_depthwise/BatchNorm/beta"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_5_depthwise/BatchNorm/beta"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_5_depthwise/BatchNorm/batchnorm/sub"
+  op: "Sub"
+  input: "MobilenetV1/Conv2d_5_depthwise/BatchNorm/beta/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_5_depthwise/BatchNorm/batchnorm/mul_2"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_5_depthwise/depthwise_weights"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_5_depthwise/depthwise_weights/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_5_depthwise/depthwise_weights"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_5_depthwise/depthwise_weights"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_4_pointwise/BatchNorm/batchnorm/add/y"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_4_pointwise/BatchNorm/moving_variance"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_4_pointwise/BatchNorm/moving_variance/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_4_pointwise/BatchNorm/moving_variance"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_4_pointwise/BatchNorm/moving_variance"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_4_pointwise/BatchNorm/batchnorm/add"
+  op: "Add"
+  input: "MobilenetV1/Conv2d_4_pointwise/BatchNorm/moving_variance/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_4_pointwise/BatchNorm/batchnorm/add/y"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_4_pointwise/BatchNorm/batchnorm/Rsqrt"
+  op: "Rsqrt"
+  input: "MobilenetV1/MobilenetV1/Conv2d_4_pointwise/BatchNorm/batchnorm/add"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_4_pointwise/BatchNorm/moving_mean"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_4_pointwise/BatchNorm/moving_mean/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_4_pointwise/BatchNorm/moving_mean"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_4_pointwise/BatchNorm/moving_mean"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_4_pointwise/BatchNorm/gamma"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_4_pointwise/BatchNorm/gamma/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_4_pointwise/BatchNorm/gamma"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_4_pointwise/BatchNorm/gamma"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_4_pointwise/BatchNorm/batchnorm/mul"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_4_pointwise/BatchNorm/batchnorm/Rsqrt"
+  input: "MobilenetV1/Conv2d_4_pointwise/BatchNorm/gamma/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_4_pointwise/BatchNorm/batchnorm/mul_2"
+  op: "Mul"
+  input: "MobilenetV1/Conv2d_4_pointwise/BatchNorm/moving_mean/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_4_pointwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_4_pointwise/BatchNorm/beta"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_4_pointwise/BatchNorm/beta/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_4_pointwise/BatchNorm/beta"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_4_pointwise/BatchNorm/beta"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_4_pointwise/BatchNorm/batchnorm/sub"
+  op: "Sub"
+  input: "MobilenetV1/Conv2d_4_pointwise/BatchNorm/beta/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_4_pointwise/BatchNorm/batchnorm/mul_2"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_4_pointwise/weights"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_4_pointwise/weights/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_4_pointwise/weights"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_4_pointwise/weights"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_4_depthwise/BatchNorm/batchnorm/add/y"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_4_depthwise/BatchNorm/moving_variance"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_4_depthwise/BatchNorm/moving_variance/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_4_depthwise/BatchNorm/moving_variance"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_4_depthwise/BatchNorm/moving_variance"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_4_depthwise/BatchNorm/batchnorm/add"
+  op: "Add"
+  input: "MobilenetV1/Conv2d_4_depthwise/BatchNorm/moving_variance/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_4_depthwise/BatchNorm/batchnorm/add/y"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_4_depthwise/BatchNorm/batchnorm/Rsqrt"
+  op: "Rsqrt"
+  input: "MobilenetV1/MobilenetV1/Conv2d_4_depthwise/BatchNorm/batchnorm/add"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_4_depthwise/BatchNorm/moving_mean"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_4_depthwise/BatchNorm/moving_mean/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_4_depthwise/BatchNorm/moving_mean"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_4_depthwise/BatchNorm/moving_mean"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_4_depthwise/BatchNorm/gamma"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_4_depthwise/BatchNorm/gamma/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_4_depthwise/BatchNorm/gamma"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_4_depthwise/BatchNorm/gamma"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_4_depthwise/BatchNorm/batchnorm/mul"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_4_depthwise/BatchNorm/batchnorm/Rsqrt"
+  input: "MobilenetV1/Conv2d_4_depthwise/BatchNorm/gamma/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_4_depthwise/BatchNorm/batchnorm/mul_2"
+  op: "Mul"
+  input: "MobilenetV1/Conv2d_4_depthwise/BatchNorm/moving_mean/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_4_depthwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_4_depthwise/BatchNorm/beta"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_4_depthwise/BatchNorm/beta/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_4_depthwise/BatchNorm/beta"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_4_depthwise/BatchNorm/beta"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_4_depthwise/BatchNorm/batchnorm/sub"
+  op: "Sub"
+  input: "MobilenetV1/Conv2d_4_depthwise/BatchNorm/beta/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_4_depthwise/BatchNorm/batchnorm/mul_2"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_4_depthwise/depthwise_weights"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_4_depthwise/depthwise_weights/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_4_depthwise/depthwise_weights"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_4_depthwise/depthwise_weights"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_3_pointwise/BatchNorm/batchnorm/add/y"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_3_pointwise/BatchNorm/moving_variance"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_3_pointwise/BatchNorm/moving_variance/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_3_pointwise/BatchNorm/moving_variance"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_3_pointwise/BatchNorm/moving_variance"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_3_pointwise/BatchNorm/batchnorm/add"
+  op: "Add"
+  input: "MobilenetV1/Conv2d_3_pointwise/BatchNorm/moving_variance/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_3_pointwise/BatchNorm/batchnorm/add/y"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_3_pointwise/BatchNorm/batchnorm/Rsqrt"
+  op: "Rsqrt"
+  input: "MobilenetV1/MobilenetV1/Conv2d_3_pointwise/BatchNorm/batchnorm/add"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_3_pointwise/BatchNorm/moving_mean"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_3_pointwise/BatchNorm/moving_mean/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_3_pointwise/BatchNorm/moving_mean"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_3_pointwise/BatchNorm/moving_mean"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_3_pointwise/BatchNorm/gamma"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_3_pointwise/BatchNorm/gamma/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_3_pointwise/BatchNorm/gamma"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_3_pointwise/BatchNorm/gamma"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_3_pointwise/BatchNorm/batchnorm/mul"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_3_pointwise/BatchNorm/batchnorm/Rsqrt"
+  input: "MobilenetV1/Conv2d_3_pointwise/BatchNorm/gamma/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_3_pointwise/BatchNorm/batchnorm/mul_2"
+  op: "Mul"
+  input: "MobilenetV1/Conv2d_3_pointwise/BatchNorm/moving_mean/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_3_pointwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_3_pointwise/BatchNorm/beta"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_3_pointwise/BatchNorm/beta/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_3_pointwise/BatchNorm/beta"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_3_pointwise/BatchNorm/beta"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_3_pointwise/BatchNorm/batchnorm/sub"
+  op: "Sub"
+  input: "MobilenetV1/Conv2d_3_pointwise/BatchNorm/beta/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_3_pointwise/BatchNorm/batchnorm/mul_2"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_3_pointwise/weights"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_3_pointwise/weights/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_3_pointwise/weights"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_3_pointwise/weights"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_3_depthwise/BatchNorm/batchnorm/add/y"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_3_depthwise/BatchNorm/moving_variance"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_3_depthwise/BatchNorm/moving_variance/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_3_depthwise/BatchNorm/moving_variance"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_3_depthwise/BatchNorm/moving_variance"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_3_depthwise/BatchNorm/batchnorm/add"
+  op: "Add"
+  input: "MobilenetV1/Conv2d_3_depthwise/BatchNorm/moving_variance/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_3_depthwise/BatchNorm/batchnorm/add/y"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_3_depthwise/BatchNorm/batchnorm/Rsqrt"
+  op: "Rsqrt"
+  input: "MobilenetV1/MobilenetV1/Conv2d_3_depthwise/BatchNorm/batchnorm/add"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_3_depthwise/BatchNorm/moving_mean"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_3_depthwise/BatchNorm/moving_mean/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_3_depthwise/BatchNorm/moving_mean"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_3_depthwise/BatchNorm/moving_mean"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_3_depthwise/BatchNorm/gamma"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_3_depthwise/BatchNorm/gamma/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_3_depthwise/BatchNorm/gamma"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_3_depthwise/BatchNorm/gamma"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_3_depthwise/BatchNorm/batchnorm/mul"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_3_depthwise/BatchNorm/batchnorm/Rsqrt"
+  input: "MobilenetV1/Conv2d_3_depthwise/BatchNorm/gamma/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_3_depthwise/BatchNorm/batchnorm/mul_2"
+  op: "Mul"
+  input: "MobilenetV1/Conv2d_3_depthwise/BatchNorm/moving_mean/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_3_depthwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_3_depthwise/BatchNorm/beta"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_3_depthwise/BatchNorm/beta/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_3_depthwise/BatchNorm/beta"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_3_depthwise/BatchNorm/beta"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_3_depthwise/BatchNorm/batchnorm/sub"
+  op: "Sub"
+  input: "MobilenetV1/Conv2d_3_depthwise/BatchNorm/beta/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_3_depthwise/BatchNorm/batchnorm/mul_2"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_3_depthwise/depthwise_weights"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_3_depthwise/depthwise_weights/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_3_depthwise/depthwise_weights"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_3_depthwise/depthwise_weights"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_2_pointwise/BatchNorm/batchnorm/add/y"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_2_pointwise/BatchNorm/moving_variance"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_2_pointwise/BatchNorm/moving_variance/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_2_pointwise/BatchNorm/moving_variance"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_2_pointwise/BatchNorm/moving_variance"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_2_pointwise/BatchNorm/batchnorm/add"
+  op: "Add"
+  input: "MobilenetV1/Conv2d_2_pointwise/BatchNorm/moving_variance/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_2_pointwise/BatchNorm/batchnorm/add/y"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_2_pointwise/BatchNorm/batchnorm/Rsqrt"
+  op: "Rsqrt"
+  input: "MobilenetV1/MobilenetV1/Conv2d_2_pointwise/BatchNorm/batchnorm/add"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_2_pointwise/BatchNorm/moving_mean"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_2_pointwise/BatchNorm/moving_mean/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_2_pointwise/BatchNorm/moving_mean"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_2_pointwise/BatchNorm/moving_mean"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_2_pointwise/BatchNorm/gamma"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_2_pointwise/BatchNorm/gamma/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_2_pointwise/BatchNorm/gamma"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_2_pointwise/BatchNorm/gamma"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_2_pointwise/BatchNorm/batchnorm/mul"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_2_pointwise/BatchNorm/batchnorm/Rsqrt"
+  input: "MobilenetV1/Conv2d_2_pointwise/BatchNorm/gamma/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_2_pointwise/BatchNorm/batchnorm/mul_2"
+  op: "Mul"
+  input: "MobilenetV1/Conv2d_2_pointwise/BatchNorm/moving_mean/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_2_pointwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_2_pointwise/BatchNorm/beta"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_2_pointwise/BatchNorm/beta/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_2_pointwise/BatchNorm/beta"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_2_pointwise/BatchNorm/beta"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_2_pointwise/BatchNorm/batchnorm/sub"
+  op: "Sub"
+  input: "MobilenetV1/Conv2d_2_pointwise/BatchNorm/beta/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_2_pointwise/BatchNorm/batchnorm/mul_2"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_2_pointwise/weights"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_2_pointwise/weights/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_2_pointwise/weights"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_2_pointwise/weights"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_2_depthwise/BatchNorm/batchnorm/add/y"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_2_depthwise/BatchNorm/moving_variance"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_2_depthwise/BatchNorm/moving_variance/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_2_depthwise/BatchNorm/moving_variance"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_2_depthwise/BatchNorm/moving_variance"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_2_depthwise/BatchNorm/batchnorm/add"
+  op: "Add"
+  input: "MobilenetV1/Conv2d_2_depthwise/BatchNorm/moving_variance/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_2_depthwise/BatchNorm/batchnorm/add/y"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_2_depthwise/BatchNorm/batchnorm/Rsqrt"
+  op: "Rsqrt"
+  input: "MobilenetV1/MobilenetV1/Conv2d_2_depthwise/BatchNorm/batchnorm/add"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_2_depthwise/BatchNorm/moving_mean"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_2_depthwise/BatchNorm/moving_mean/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_2_depthwise/BatchNorm/moving_mean"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_2_depthwise/BatchNorm/moving_mean"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_2_depthwise/BatchNorm/gamma"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_2_depthwise/BatchNorm/gamma/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_2_depthwise/BatchNorm/gamma"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_2_depthwise/BatchNorm/gamma"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_2_depthwise/BatchNorm/batchnorm/mul"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_2_depthwise/BatchNorm/batchnorm/Rsqrt"
+  input: "MobilenetV1/Conv2d_2_depthwise/BatchNorm/gamma/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_2_depthwise/BatchNorm/batchnorm/mul_2"
+  op: "Mul"
+  input: "MobilenetV1/Conv2d_2_depthwise/BatchNorm/moving_mean/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_2_depthwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_2_depthwise/BatchNorm/beta"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_2_depthwise/BatchNorm/beta/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_2_depthwise/BatchNorm/beta"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_2_depthwise/BatchNorm/beta"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_2_depthwise/BatchNorm/batchnorm/sub"
+  op: "Sub"
+  input: "MobilenetV1/Conv2d_2_depthwise/BatchNorm/beta/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_2_depthwise/BatchNorm/batchnorm/mul_2"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_2_depthwise/depthwise_weights"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_2_depthwise/depthwise_weights/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_2_depthwise/depthwise_weights"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_2_depthwise/depthwise_weights"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_1_pointwise/BatchNorm/batchnorm/add/y"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_1_pointwise/BatchNorm/moving_variance"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_1_pointwise/BatchNorm/moving_variance/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_1_pointwise/BatchNorm/moving_variance"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_1_pointwise/BatchNorm/moving_variance"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_1_pointwise/BatchNorm/batchnorm/add"
+  op: "Add"
+  input: "MobilenetV1/Conv2d_1_pointwise/BatchNorm/moving_variance/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_1_pointwise/BatchNorm/batchnorm/add/y"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_1_pointwise/BatchNorm/batchnorm/Rsqrt"
+  op: "Rsqrt"
+  input: "MobilenetV1/MobilenetV1/Conv2d_1_pointwise/BatchNorm/batchnorm/add"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_1_pointwise/BatchNorm/moving_mean"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_1_pointwise/BatchNorm/moving_mean/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_1_pointwise/BatchNorm/moving_mean"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_1_pointwise/BatchNorm/moving_mean"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_1_pointwise/BatchNorm/gamma"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_1_pointwise/BatchNorm/gamma/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_1_pointwise/BatchNorm/gamma"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_1_pointwise/BatchNorm/gamma"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_1_pointwise/BatchNorm/batchnorm/mul"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_1_pointwise/BatchNorm/batchnorm/Rsqrt"
+  input: "MobilenetV1/Conv2d_1_pointwise/BatchNorm/gamma/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_1_pointwise/BatchNorm/batchnorm/mul_2"
+  op: "Mul"
+  input: "MobilenetV1/Conv2d_1_pointwise/BatchNorm/moving_mean/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_1_pointwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_1_pointwise/BatchNorm/beta"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_1_pointwise/BatchNorm/beta/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_1_pointwise/BatchNorm/beta"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_1_pointwise/BatchNorm/beta"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_1_pointwise/BatchNorm/batchnorm/sub"
+  op: "Sub"
+  input: "MobilenetV1/Conv2d_1_pointwise/BatchNorm/beta/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_1_pointwise/BatchNorm/batchnorm/mul_2"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_1_pointwise/weights"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_1_pointwise/weights/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_1_pointwise/weights"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_1_pointwise/weights"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_1_depthwise/BatchNorm/batchnorm/add/y"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_1_depthwise/BatchNorm/moving_variance"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_1_depthwise/BatchNorm/moving_variance/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_1_depthwise/BatchNorm/moving_variance"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_1_depthwise/BatchNorm/moving_variance"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_1_depthwise/BatchNorm/batchnorm/add"
+  op: "Add"
+  input: "MobilenetV1/Conv2d_1_depthwise/BatchNorm/moving_variance/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_1_depthwise/BatchNorm/batchnorm/add/y"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_1_depthwise/BatchNorm/batchnorm/Rsqrt"
+  op: "Rsqrt"
+  input: "MobilenetV1/MobilenetV1/Conv2d_1_depthwise/BatchNorm/batchnorm/add"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_1_depthwise/BatchNorm/moving_mean"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_1_depthwise/BatchNorm/moving_mean/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_1_depthwise/BatchNorm/moving_mean"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_1_depthwise/BatchNorm/moving_mean"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_1_depthwise/BatchNorm/gamma"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_1_depthwise/BatchNorm/gamma/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_1_depthwise/BatchNorm/gamma"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_1_depthwise/BatchNorm/gamma"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_1_depthwise/BatchNorm/batchnorm/mul"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_1_depthwise/BatchNorm/batchnorm/Rsqrt"
+  input: "MobilenetV1/Conv2d_1_depthwise/BatchNorm/gamma/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_1_depthwise/BatchNorm/batchnorm/mul_2"
+  op: "Mul"
+  input: "MobilenetV1/Conv2d_1_depthwise/BatchNorm/moving_mean/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_1_depthwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_1_depthwise/BatchNorm/beta"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_1_depthwise/BatchNorm/beta/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_1_depthwise/BatchNorm/beta"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_1_depthwise/BatchNorm/beta"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_1_depthwise/BatchNorm/batchnorm/sub"
+  op: "Sub"
+  input: "MobilenetV1/Conv2d_1_depthwise/BatchNorm/beta/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_1_depthwise/BatchNorm/batchnorm/mul_2"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_1_depthwise/depthwise_weights"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_1_depthwise/depthwise_weights/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_1_depthwise/depthwise_weights"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_1_depthwise/depthwise_weights"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_0/BatchNorm/batchnorm/add/y"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_0/BatchNorm/moving_variance"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_0/BatchNorm/moving_variance/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_0/BatchNorm/moving_variance"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_0/BatchNorm/moving_variance"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_0/BatchNorm/batchnorm/add"
+  op: "Add"
+  input: "MobilenetV1/Conv2d_0/BatchNorm/moving_variance/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_0/BatchNorm/batchnorm/add/y"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_0/BatchNorm/batchnorm/Rsqrt"
+  op: "Rsqrt"
+  input: "MobilenetV1/MobilenetV1/Conv2d_0/BatchNorm/batchnorm/add"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_0/BatchNorm/moving_mean"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_0/BatchNorm/moving_mean/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_0/BatchNorm/moving_mean"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_0/BatchNorm/moving_mean"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_0/BatchNorm/gamma"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_0/BatchNorm/gamma/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_0/BatchNorm/gamma"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_0/BatchNorm/gamma"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_0/BatchNorm/batchnorm/mul"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_0/BatchNorm/batchnorm/Rsqrt"
+  input: "MobilenetV1/Conv2d_0/BatchNorm/gamma/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_0/BatchNorm/batchnorm/mul_2"
+  op: "Mul"
+  input: "MobilenetV1/Conv2d_0/BatchNorm/moving_mean/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_0/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_0/BatchNorm/beta"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_0/BatchNorm/beta/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_0/BatchNorm/beta"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_0/BatchNorm/beta"
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_0/BatchNorm/batchnorm/sub"
+  op: "Sub"
+  input: "MobilenetV1/Conv2d_0/BatchNorm/beta/read"
+  input: "MobilenetV1/MobilenetV1/Conv2d_0/BatchNorm/batchnorm/mul_2"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_0/weights"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Conv2d_0/weights/read"
+  op: "Identity"
+  input: "MobilenetV1/Conv2d_0/weights"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@MobilenetV1/Conv2d_0/weights"
+      }
+    }
+  }
+}
+node {
+  name: "input"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1
+        }
+        dim {
+          size: 128
+        }
+        dim {
+          size: 128
+        }
+        dim {
+          size: 3
+        }
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_0/convolution"
+  op: "Conv2D"
+  input: "input"
+  input: "MobilenetV1/Conv2d_0/weights/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 2
+        i: 2
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "use_cudnn_on_gpu"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_0/BatchNorm/batchnorm/mul_1"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_0/convolution"
+  input: "MobilenetV1/MobilenetV1/Conv2d_0/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_0/BatchNorm/batchnorm/add_1"
+  op: "Add"
+  input: "MobilenetV1/MobilenetV1/Conv2d_0/BatchNorm/batchnorm/mul_1"
+  input: "MobilenetV1/MobilenetV1/Conv2d_0/BatchNorm/batchnorm/sub"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_0/Relu6"
+  op: "Relu6"
+  input: "MobilenetV1/MobilenetV1/Conv2d_0/BatchNorm/batchnorm/add_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_1_depthwise/depthwise"
+  op: "DepthwiseConv2dNative"
+  input: "MobilenetV1/MobilenetV1/Conv2d_0/Relu6"
+  input: "MobilenetV1/Conv2d_1_depthwise/depthwise_weights/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_1_depthwise/BatchNorm/batchnorm/mul_1"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_1_depthwise/depthwise"
+  input: "MobilenetV1/MobilenetV1/Conv2d_1_depthwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_1_depthwise/BatchNorm/batchnorm/add_1"
+  op: "Add"
+  input: "MobilenetV1/MobilenetV1/Conv2d_1_depthwise/BatchNorm/batchnorm/mul_1"
+  input: "MobilenetV1/MobilenetV1/Conv2d_1_depthwise/BatchNorm/batchnorm/sub"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_1_depthwise/Relu6"
+  op: "Relu6"
+  input: "MobilenetV1/MobilenetV1/Conv2d_1_depthwise/BatchNorm/batchnorm/add_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_1_pointwise/convolution"
+  op: "Conv2D"
+  input: "MobilenetV1/MobilenetV1/Conv2d_1_depthwise/Relu6"
+  input: "MobilenetV1/Conv2d_1_pointwise/weights/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "use_cudnn_on_gpu"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_1_pointwise/BatchNorm/batchnorm/mul_1"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_1_pointwise/convolution"
+  input: "MobilenetV1/MobilenetV1/Conv2d_1_pointwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_1_pointwise/BatchNorm/batchnorm/add_1"
+  op: "Add"
+  input: "MobilenetV1/MobilenetV1/Conv2d_1_pointwise/BatchNorm/batchnorm/mul_1"
+  input: "MobilenetV1/MobilenetV1/Conv2d_1_pointwise/BatchNorm/batchnorm/sub"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Relu6"
+  op: "Relu6"
+  input: "MobilenetV1/MobilenetV1/Conv2d_1_pointwise/BatchNorm/batchnorm/add_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_2_depthwise/depthwise"
+  op: "DepthwiseConv2dNative"
+  input: "MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Relu6"
+  input: "MobilenetV1/Conv2d_2_depthwise/depthwise_weights/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 2
+        i: 2
+        i: 1
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_2_depthwise/BatchNorm/batchnorm/mul_1"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_2_depthwise/depthwise"
+  input: "MobilenetV1/MobilenetV1/Conv2d_2_depthwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_2_depthwise/BatchNorm/batchnorm/add_1"
+  op: "Add"
+  input: "MobilenetV1/MobilenetV1/Conv2d_2_depthwise/BatchNorm/batchnorm/mul_1"
+  input: "MobilenetV1/MobilenetV1/Conv2d_2_depthwise/BatchNorm/batchnorm/sub"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_2_depthwise/Relu6"
+  op: "Relu6"
+  input: "MobilenetV1/MobilenetV1/Conv2d_2_depthwise/BatchNorm/batchnorm/add_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_2_pointwise/convolution"
+  op: "Conv2D"
+  input: "MobilenetV1/MobilenetV1/Conv2d_2_depthwise/Relu6"
+  input: "MobilenetV1/Conv2d_2_pointwise/weights/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "use_cudnn_on_gpu"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_2_pointwise/BatchNorm/batchnorm/mul_1"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_2_pointwise/convolution"
+  input: "MobilenetV1/MobilenetV1/Conv2d_2_pointwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_2_pointwise/BatchNorm/batchnorm/add_1"
+  op: "Add"
+  input: "MobilenetV1/MobilenetV1/Conv2d_2_pointwise/BatchNorm/batchnorm/mul_1"
+  input: "MobilenetV1/MobilenetV1/Conv2d_2_pointwise/BatchNorm/batchnorm/sub"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Relu6"
+  op: "Relu6"
+  input: "MobilenetV1/MobilenetV1/Conv2d_2_pointwise/BatchNorm/batchnorm/add_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_3_depthwise/depthwise"
+  op: "DepthwiseConv2dNative"
+  input: "MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Relu6"
+  input: "MobilenetV1/Conv2d_3_depthwise/depthwise_weights/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_3_depthwise/BatchNorm/batchnorm/mul_1"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_3_depthwise/depthwise"
+  input: "MobilenetV1/MobilenetV1/Conv2d_3_depthwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_3_depthwise/BatchNorm/batchnorm/add_1"
+  op: "Add"
+  input: "MobilenetV1/MobilenetV1/Conv2d_3_depthwise/BatchNorm/batchnorm/mul_1"
+  input: "MobilenetV1/MobilenetV1/Conv2d_3_depthwise/BatchNorm/batchnorm/sub"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_3_depthwise/Relu6"
+  op: "Relu6"
+  input: "MobilenetV1/MobilenetV1/Conv2d_3_depthwise/BatchNorm/batchnorm/add_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_3_pointwise/convolution"
+  op: "Conv2D"
+  input: "MobilenetV1/MobilenetV1/Conv2d_3_depthwise/Relu6"
+  input: "MobilenetV1/Conv2d_3_pointwise/weights/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "use_cudnn_on_gpu"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_3_pointwise/BatchNorm/batchnorm/mul_1"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_3_pointwise/convolution"
+  input: "MobilenetV1/MobilenetV1/Conv2d_3_pointwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_3_pointwise/BatchNorm/batchnorm/add_1"
+  op: "Add"
+  input: "MobilenetV1/MobilenetV1/Conv2d_3_pointwise/BatchNorm/batchnorm/mul_1"
+  input: "MobilenetV1/MobilenetV1/Conv2d_3_pointwise/BatchNorm/batchnorm/sub"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Relu6"
+  op: "Relu6"
+  input: "MobilenetV1/MobilenetV1/Conv2d_3_pointwise/BatchNorm/batchnorm/add_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_4_depthwise/depthwise"
+  op: "DepthwiseConv2dNative"
+  input: "MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Relu6"
+  input: "MobilenetV1/Conv2d_4_depthwise/depthwise_weights/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 2
+        i: 2
+        i: 1
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_4_depthwise/BatchNorm/batchnorm/mul_1"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_4_depthwise/depthwise"
+  input: "MobilenetV1/MobilenetV1/Conv2d_4_depthwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_4_depthwise/BatchNorm/batchnorm/add_1"
+  op: "Add"
+  input: "MobilenetV1/MobilenetV1/Conv2d_4_depthwise/BatchNorm/batchnorm/mul_1"
+  input: "MobilenetV1/MobilenetV1/Conv2d_4_depthwise/BatchNorm/batchnorm/sub"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_4_depthwise/Relu6"
+  op: "Relu6"
+  input: "MobilenetV1/MobilenetV1/Conv2d_4_depthwise/BatchNorm/batchnorm/add_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_4_pointwise/convolution"
+  op: "Conv2D"
+  input: "MobilenetV1/MobilenetV1/Conv2d_4_depthwise/Relu6"
+  input: "MobilenetV1/Conv2d_4_pointwise/weights/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "use_cudnn_on_gpu"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_4_pointwise/BatchNorm/batchnorm/mul_1"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_4_pointwise/convolution"
+  input: "MobilenetV1/MobilenetV1/Conv2d_4_pointwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_4_pointwise/BatchNorm/batchnorm/add_1"
+  op: "Add"
+  input: "MobilenetV1/MobilenetV1/Conv2d_4_pointwise/BatchNorm/batchnorm/mul_1"
+  input: "MobilenetV1/MobilenetV1/Conv2d_4_pointwise/BatchNorm/batchnorm/sub"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Relu6"
+  op: "Relu6"
+  input: "MobilenetV1/MobilenetV1/Conv2d_4_pointwise/BatchNorm/batchnorm/add_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_5_depthwise/depthwise"
+  op: "DepthwiseConv2dNative"
+  input: "MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Relu6"
+  input: "MobilenetV1/Conv2d_5_depthwise/depthwise_weights/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_5_depthwise/BatchNorm/batchnorm/mul_1"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_5_depthwise/depthwise"
+  input: "MobilenetV1/MobilenetV1/Conv2d_5_depthwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_5_depthwise/BatchNorm/batchnorm/add_1"
+  op: "Add"
+  input: "MobilenetV1/MobilenetV1/Conv2d_5_depthwise/BatchNorm/batchnorm/mul_1"
+  input: "MobilenetV1/MobilenetV1/Conv2d_5_depthwise/BatchNorm/batchnorm/sub"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_5_depthwise/Relu6"
+  op: "Relu6"
+  input: "MobilenetV1/MobilenetV1/Conv2d_5_depthwise/BatchNorm/batchnorm/add_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_5_pointwise/convolution"
+  op: "Conv2D"
+  input: "MobilenetV1/MobilenetV1/Conv2d_5_depthwise/Relu6"
+  input: "MobilenetV1/Conv2d_5_pointwise/weights/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "use_cudnn_on_gpu"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_5_pointwise/BatchNorm/batchnorm/mul_1"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_5_pointwise/convolution"
+  input: "MobilenetV1/MobilenetV1/Conv2d_5_pointwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_5_pointwise/BatchNorm/batchnorm/add_1"
+  op: "Add"
+  input: "MobilenetV1/MobilenetV1/Conv2d_5_pointwise/BatchNorm/batchnorm/mul_1"
+  input: "MobilenetV1/MobilenetV1/Conv2d_5_pointwise/BatchNorm/batchnorm/sub"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Relu6"
+  op: "Relu6"
+  input: "MobilenetV1/MobilenetV1/Conv2d_5_pointwise/BatchNorm/batchnorm/add_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_6_depthwise/depthwise"
+  op: "DepthwiseConv2dNative"
+  input: "MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Relu6"
+  input: "MobilenetV1/Conv2d_6_depthwise/depthwise_weights/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 2
+        i: 2
+        i: 1
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_6_depthwise/BatchNorm/batchnorm/mul_1"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_6_depthwise/depthwise"
+  input: "MobilenetV1/MobilenetV1/Conv2d_6_depthwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_6_depthwise/BatchNorm/batchnorm/add_1"
+  op: "Add"
+  input: "MobilenetV1/MobilenetV1/Conv2d_6_depthwise/BatchNorm/batchnorm/mul_1"
+  input: "MobilenetV1/MobilenetV1/Conv2d_6_depthwise/BatchNorm/batchnorm/sub"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_6_depthwise/Relu6"
+  op: "Relu6"
+  input: "MobilenetV1/MobilenetV1/Conv2d_6_depthwise/BatchNorm/batchnorm/add_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_6_pointwise/convolution"
+  op: "Conv2D"
+  input: "MobilenetV1/MobilenetV1/Conv2d_6_depthwise/Relu6"
+  input: "MobilenetV1/Conv2d_6_pointwise/weights/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "use_cudnn_on_gpu"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_6_pointwise/BatchNorm/batchnorm/mul_1"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_6_pointwise/convolution"
+  input: "MobilenetV1/MobilenetV1/Conv2d_6_pointwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_6_pointwise/BatchNorm/batchnorm/add_1"
+  op: "Add"
+  input: "MobilenetV1/MobilenetV1/Conv2d_6_pointwise/BatchNorm/batchnorm/mul_1"
+  input: "MobilenetV1/MobilenetV1/Conv2d_6_pointwise/BatchNorm/batchnorm/sub"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Relu6"
+  op: "Relu6"
+  input: "MobilenetV1/MobilenetV1/Conv2d_6_pointwise/BatchNorm/batchnorm/add_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_7_depthwise/depthwise"
+  op: "DepthwiseConv2dNative"
+  input: "MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Relu6"
+  input: "MobilenetV1/Conv2d_7_depthwise/depthwise_weights/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_7_depthwise/BatchNorm/batchnorm/mul_1"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_7_depthwise/depthwise"
+  input: "MobilenetV1/MobilenetV1/Conv2d_7_depthwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_7_depthwise/BatchNorm/batchnorm/add_1"
+  op: "Add"
+  input: "MobilenetV1/MobilenetV1/Conv2d_7_depthwise/BatchNorm/batchnorm/mul_1"
+  input: "MobilenetV1/MobilenetV1/Conv2d_7_depthwise/BatchNorm/batchnorm/sub"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_7_depthwise/Relu6"
+  op: "Relu6"
+  input: "MobilenetV1/MobilenetV1/Conv2d_7_depthwise/BatchNorm/batchnorm/add_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_7_pointwise/convolution"
+  op: "Conv2D"
+  input: "MobilenetV1/MobilenetV1/Conv2d_7_depthwise/Relu6"
+  input: "MobilenetV1/Conv2d_7_pointwise/weights/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "use_cudnn_on_gpu"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_7_pointwise/BatchNorm/batchnorm/mul_1"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_7_pointwise/convolution"
+  input: "MobilenetV1/MobilenetV1/Conv2d_7_pointwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_7_pointwise/BatchNorm/batchnorm/add_1"
+  op: "Add"
+  input: "MobilenetV1/MobilenetV1/Conv2d_7_pointwise/BatchNorm/batchnorm/mul_1"
+  input: "MobilenetV1/MobilenetV1/Conv2d_7_pointwise/BatchNorm/batchnorm/sub"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Relu6"
+  op: "Relu6"
+  input: "MobilenetV1/MobilenetV1/Conv2d_7_pointwise/BatchNorm/batchnorm/add_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_8_depthwise/depthwise"
+  op: "DepthwiseConv2dNative"
+  input: "MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Relu6"
+  input: "MobilenetV1/Conv2d_8_depthwise/depthwise_weights/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_8_depthwise/BatchNorm/batchnorm/mul_1"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_8_depthwise/depthwise"
+  input: "MobilenetV1/MobilenetV1/Conv2d_8_depthwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_8_depthwise/BatchNorm/batchnorm/add_1"
+  op: "Add"
+  input: "MobilenetV1/MobilenetV1/Conv2d_8_depthwise/BatchNorm/batchnorm/mul_1"
+  input: "MobilenetV1/MobilenetV1/Conv2d_8_depthwise/BatchNorm/batchnorm/sub"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_8_depthwise/Relu6"
+  op: "Relu6"
+  input: "MobilenetV1/MobilenetV1/Conv2d_8_depthwise/BatchNorm/batchnorm/add_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_8_pointwise/convolution"
+  op: "Conv2D"
+  input: "MobilenetV1/MobilenetV1/Conv2d_8_depthwise/Relu6"
+  input: "MobilenetV1/Conv2d_8_pointwise/weights/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "use_cudnn_on_gpu"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_8_pointwise/BatchNorm/batchnorm/mul_1"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_8_pointwise/convolution"
+  input: "MobilenetV1/MobilenetV1/Conv2d_8_pointwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_8_pointwise/BatchNorm/batchnorm/add_1"
+  op: "Add"
+  input: "MobilenetV1/MobilenetV1/Conv2d_8_pointwise/BatchNorm/batchnorm/mul_1"
+  input: "MobilenetV1/MobilenetV1/Conv2d_8_pointwise/BatchNorm/batchnorm/sub"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Relu6"
+  op: "Relu6"
+  input: "MobilenetV1/MobilenetV1/Conv2d_8_pointwise/BatchNorm/batchnorm/add_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_9_depthwise/depthwise"
+  op: "DepthwiseConv2dNative"
+  input: "MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Relu6"
+  input: "MobilenetV1/Conv2d_9_depthwise/depthwise_weights/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_9_depthwise/BatchNorm/batchnorm/mul_1"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_9_depthwise/depthwise"
+  input: "MobilenetV1/MobilenetV1/Conv2d_9_depthwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_9_depthwise/BatchNorm/batchnorm/add_1"
+  op: "Add"
+  input: "MobilenetV1/MobilenetV1/Conv2d_9_depthwise/BatchNorm/batchnorm/mul_1"
+  input: "MobilenetV1/MobilenetV1/Conv2d_9_depthwise/BatchNorm/batchnorm/sub"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_9_depthwise/Relu6"
+  op: "Relu6"
+  input: "MobilenetV1/MobilenetV1/Conv2d_9_depthwise/BatchNorm/batchnorm/add_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_9_pointwise/convolution"
+  op: "Conv2D"
+  input: "MobilenetV1/MobilenetV1/Conv2d_9_depthwise/Relu6"
+  input: "MobilenetV1/Conv2d_9_pointwise/weights/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "use_cudnn_on_gpu"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_9_pointwise/BatchNorm/batchnorm/mul_1"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_9_pointwise/convolution"
+  input: "MobilenetV1/MobilenetV1/Conv2d_9_pointwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_9_pointwise/BatchNorm/batchnorm/add_1"
+  op: "Add"
+  input: "MobilenetV1/MobilenetV1/Conv2d_9_pointwise/BatchNorm/batchnorm/mul_1"
+  input: "MobilenetV1/MobilenetV1/Conv2d_9_pointwise/BatchNorm/batchnorm/sub"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Relu6"
+  op: "Relu6"
+  input: "MobilenetV1/MobilenetV1/Conv2d_9_pointwise/BatchNorm/batchnorm/add_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_10_depthwise/depthwise"
+  op: "DepthwiseConv2dNative"
+  input: "MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Relu6"
+  input: "MobilenetV1/Conv2d_10_depthwise/depthwise_weights/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_10_depthwise/BatchNorm/batchnorm/mul_1"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_10_depthwise/depthwise"
+  input: "MobilenetV1/MobilenetV1/Conv2d_10_depthwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_10_depthwise/BatchNorm/batchnorm/add_1"
+  op: "Add"
+  input: "MobilenetV1/MobilenetV1/Conv2d_10_depthwise/BatchNorm/batchnorm/mul_1"
+  input: "MobilenetV1/MobilenetV1/Conv2d_10_depthwise/BatchNorm/batchnorm/sub"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_10_depthwise/Relu6"
+  op: "Relu6"
+  input: "MobilenetV1/MobilenetV1/Conv2d_10_depthwise/BatchNorm/batchnorm/add_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_10_pointwise/convolution"
+  op: "Conv2D"
+  input: "MobilenetV1/MobilenetV1/Conv2d_10_depthwise/Relu6"
+  input: "MobilenetV1/Conv2d_10_pointwise/weights/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "use_cudnn_on_gpu"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_10_pointwise/BatchNorm/batchnorm/mul_1"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_10_pointwise/convolution"
+  input: "MobilenetV1/MobilenetV1/Conv2d_10_pointwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_10_pointwise/BatchNorm/batchnorm/add_1"
+  op: "Add"
+  input: "MobilenetV1/MobilenetV1/Conv2d_10_pointwise/BatchNorm/batchnorm/mul_1"
+  input: "MobilenetV1/MobilenetV1/Conv2d_10_pointwise/BatchNorm/batchnorm/sub"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Relu6"
+  op: "Relu6"
+  input: "MobilenetV1/MobilenetV1/Conv2d_10_pointwise/BatchNorm/batchnorm/add_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_11_depthwise/depthwise"
+  op: "DepthwiseConv2dNative"
+  input: "MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Relu6"
+  input: "MobilenetV1/Conv2d_11_depthwise/depthwise_weights/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_11_depthwise/BatchNorm/batchnorm/mul_1"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_11_depthwise/depthwise"
+  input: "MobilenetV1/MobilenetV1/Conv2d_11_depthwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_11_depthwise/BatchNorm/batchnorm/add_1"
+  op: "Add"
+  input: "MobilenetV1/MobilenetV1/Conv2d_11_depthwise/BatchNorm/batchnorm/mul_1"
+  input: "MobilenetV1/MobilenetV1/Conv2d_11_depthwise/BatchNorm/batchnorm/sub"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_11_depthwise/Relu6"
+  op: "Relu6"
+  input: "MobilenetV1/MobilenetV1/Conv2d_11_depthwise/BatchNorm/batchnorm/add_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_11_pointwise/convolution"
+  op: "Conv2D"
+  input: "MobilenetV1/MobilenetV1/Conv2d_11_depthwise/Relu6"
+  input: "MobilenetV1/Conv2d_11_pointwise/weights/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "use_cudnn_on_gpu"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_11_pointwise/BatchNorm/batchnorm/mul_1"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_11_pointwise/convolution"
+  input: "MobilenetV1/MobilenetV1/Conv2d_11_pointwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_11_pointwise/BatchNorm/batchnorm/add_1"
+  op: "Add"
+  input: "MobilenetV1/MobilenetV1/Conv2d_11_pointwise/BatchNorm/batchnorm/mul_1"
+  input: "MobilenetV1/MobilenetV1/Conv2d_11_pointwise/BatchNorm/batchnorm/sub"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Relu6"
+  op: "Relu6"
+  input: "MobilenetV1/MobilenetV1/Conv2d_11_pointwise/BatchNorm/batchnorm/add_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_12_depthwise/depthwise"
+  op: "DepthwiseConv2dNative"
+  input: "MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Relu6"
+  input: "MobilenetV1/Conv2d_12_depthwise/depthwise_weights/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 2
+        i: 2
+        i: 1
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_12_depthwise/BatchNorm/batchnorm/mul_1"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_12_depthwise/depthwise"
+  input: "MobilenetV1/MobilenetV1/Conv2d_12_depthwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_12_depthwise/BatchNorm/batchnorm/add_1"
+  op: "Add"
+  input: "MobilenetV1/MobilenetV1/Conv2d_12_depthwise/BatchNorm/batchnorm/mul_1"
+  input: "MobilenetV1/MobilenetV1/Conv2d_12_depthwise/BatchNorm/batchnorm/sub"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_12_depthwise/Relu6"
+  op: "Relu6"
+  input: "MobilenetV1/MobilenetV1/Conv2d_12_depthwise/BatchNorm/batchnorm/add_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_12_pointwise/convolution"
+  op: "Conv2D"
+  input: "MobilenetV1/MobilenetV1/Conv2d_12_depthwise/Relu6"
+  input: "MobilenetV1/Conv2d_12_pointwise/weights/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "use_cudnn_on_gpu"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_12_pointwise/BatchNorm/batchnorm/mul_1"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_12_pointwise/convolution"
+  input: "MobilenetV1/MobilenetV1/Conv2d_12_pointwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_12_pointwise/BatchNorm/batchnorm/add_1"
+  op: "Add"
+  input: "MobilenetV1/MobilenetV1/Conv2d_12_pointwise/BatchNorm/batchnorm/mul_1"
+  input: "MobilenetV1/MobilenetV1/Conv2d_12_pointwise/BatchNorm/batchnorm/sub"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Relu6"
+  op: "Relu6"
+  input: "MobilenetV1/MobilenetV1/Conv2d_12_pointwise/BatchNorm/batchnorm/add_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_13_depthwise/depthwise"
+  op: "DepthwiseConv2dNative"
+  input: "MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Relu6"
+  input: "MobilenetV1/Conv2d_13_depthwise/depthwise_weights/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_13_depthwise/BatchNorm/batchnorm/mul_1"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_13_depthwise/depthwise"
+  input: "MobilenetV1/MobilenetV1/Conv2d_13_depthwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_13_depthwise/BatchNorm/batchnorm/add_1"
+  op: "Add"
+  input: "MobilenetV1/MobilenetV1/Conv2d_13_depthwise/BatchNorm/batchnorm/mul_1"
+  input: "MobilenetV1/MobilenetV1/Conv2d_13_depthwise/BatchNorm/batchnorm/sub"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_13_depthwise/Relu6"
+  op: "Relu6"
+  input: "MobilenetV1/MobilenetV1/Conv2d_13_depthwise/BatchNorm/batchnorm/add_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_13_pointwise/convolution"
+  op: "Conv2D"
+  input: "MobilenetV1/MobilenetV1/Conv2d_13_depthwise/Relu6"
+  input: "MobilenetV1/Conv2d_13_pointwise/weights/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "use_cudnn_on_gpu"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_13_pointwise/BatchNorm/batchnorm/mul_1"
+  op: "Mul"
+  input: "MobilenetV1/MobilenetV1/Conv2d_13_pointwise/convolution"
+  input: "MobilenetV1/MobilenetV1/Conv2d_13_pointwise/BatchNorm/batchnorm/mul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_13_pointwise/BatchNorm/batchnorm/add_1"
+  op: "Add"
+  input: "MobilenetV1/MobilenetV1/Conv2d_13_pointwise/BatchNorm/batchnorm/mul_1"
+  input: "MobilenetV1/MobilenetV1/Conv2d_13_pointwise/BatchNorm/batchnorm/sub"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Relu6"
+  op: "Relu6"
+  input: "MobilenetV1/MobilenetV1/Conv2d_13_pointwise/BatchNorm/batchnorm/add_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Logits/AvgPool_1a/AvgPool"
+  op: "AvgPool"
+  input: "MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Relu6"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "ksize"
+    value {
+      list {
+        i: 1
+        i: 4
+        i: 4
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "VALID"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 2
+        i: 2
+        i: 1
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Logits/Dropout_1b/Identity"
+  op: "Identity"
+  input: "MobilenetV1/Logits/AvgPool_1a/AvgPool"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Logits/Conv2d_1c_1x1/convolution"
+  op: "Conv2D"
+  input: "MobilenetV1/Logits/Dropout_1b/Identity"
+  input: "MobilenetV1/Logits/Conv2d_1c_1x1/weights/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "use_cudnn_on_gpu"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Logits/Conv2d_1c_1x1/BiasAdd"
+  op: "BiasAdd"
+  input: "MobilenetV1/Logits/Conv2d_1c_1x1/convolution"
+  input: "MobilenetV1/Logits/Conv2d_1c_1x1/biases/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Logits/SpatialSqueeze"
+  op: "Squeeze"
+  input: "MobilenetV1/Logits/Conv2d_1c_1x1/BiasAdd"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "squeeze_dims"
+    value {
+      list {
+        i: 1
+        i: 2
+      }
+    }
+  }
+}
+node {
+  name: "MobilenetV1/Predictions/Reshape"
+  op: "Reshape"
+  input: "MobilenetV1/Logits/SpatialSqueeze"
+  input: "MobilenetV1/Predictions/Reshape/shape"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "Tshape"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "input_1/BottleneckInputPlaceholder"
+  op: "PlaceholderWithDefault"
+  input: "MobilenetV1/Predictions/Reshape"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: -1
+        }
+        dim {
+          size: 1001
+        }
+      }
+    }
+  }
+}
+node {
+  name: "final_training_ops/Wx_plus_b/MatMul"
+  op: "MatMul"
+  input: "input_1/BottleneckInputPlaceholder"
+  input: "final_training_ops/weights/final_weights/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "transpose_a"
+    value {
+      b: false
+    }
+  }
+  attr {
+    key: "transpose_b"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "final_training_ops/Wx_plus_b/add"
+  op: "Add"
+  input: "final_training_ops/Wx_plus_b/MatMul"
+  input: "final_training_ops/biases/final_biases/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "final_result"
+  op: "Softmax"
+  input: "final_training_ops/Wx_plus_b/add"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+library {
+}
