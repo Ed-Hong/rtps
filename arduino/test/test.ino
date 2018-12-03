@@ -35,6 +35,8 @@ void setup()
 
 void loop()
 { 
+  postReset();
+  
   byte len = mySerial.readBytesUntil('\n', instr, INLEN);
 
   instr[len] = 0;
@@ -75,29 +77,56 @@ void loop()
   Serial.println("--------------------");
 
   // Parse x and y coordinates
-//  int x = atoi(xcoord);
-//  int y = atoi(ycoord);
-//
-//
-//  // Compare x and y coordinates against coordinates of desired spot(s)
-//  int spotX = 225;
-//  int spotY = -147;
-//
-//  int xDiff = abs(spotX - x);
-//  int yDiff = abs(spotY - y);
-//
-//  // Check that the bounding box is within tolerance range
-//  if(xDiff < 10 && yDiff < 10) {
-//    Serial.println("~~~~~ SPOT 1 IS FULL ~~~~~");
-//  }
+  int x = atoi(xcoord);
+  int y = atoi(ycoord);
+
+
+  // Compare x and y coordinates against coordinates of desired spot(s)
+  isSpotFull(x,y);
   
   //String category = tok;
   //Process p;
   //String command = "curl -H \"Content-Type: application/json\" -X POST -d '{ \"id\" : 100 , \"isFull\" : true , \"topcateg\" : \"" + category + "\"}' http://192.168.43.24:5000/spots";
   //p.runShellCommand(command);
   //while (p.running());
-  //delay(5000);
+  delay(30);
 
+}
+
+bool isSpotFull(int x, int y) {
+  int xcoordsMin[] = {-1000, -500, -150, 400}; 
+  int xcoordsMax[] = {-600, -100, 350, 800};
+
+  for(int i = 0; i<sizeof xcoordsMin/sizeof xcoordsMin[0]; i++) {
+    int xMin = xcoordsMin[i];
+    int xMax = xcoordsMax[i];
+    
+    // Check that the bounding box is within tolerance range
+    if(xMin <= x && x <= xMax) {
+      Serial.println("~~~~~~~~~~~~~~~~~~~~ SPOT IS FULL ~~~~~~~~~~~~~~~~~~~~");
+      Serial.print("~~~~~~~~~~~~~~~~~~~~ Number = ");
+      char str[16];
+      itoa(i, str, 10);
+      Serial.println(str);
+
+      postSpot(str);
+    }
+  }
+}
+
+void postSpot(String idStr) {
+  Process p;
+  String command = "curl -H \"Content-Type: application/json\" -X POST -d '{ \"id\" : 100 , \"isFull\" : true , \"idStr\" : \"" + idStr + "\"}' http://192.168.43.24:5000/spots";
+  p.runShellCommand(command);
+  while (p.running());
+}
+
+void postReset() {
+  String reset = "reset";
+  Process p;
+  String command = "curl -H \"Content-Type: application/json\" -X POST -d '{ \"id\" : 100 , \"isFull\" : true , \"idStr\" : \"" + reset + "\"}' http://192.168.43.24:5000/spots";
+  p.runShellCommand(command);
+  while (p.running());
 }
 
 // --------------------STATE MACHINE SAMPLE CODE--------------------
