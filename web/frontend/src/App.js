@@ -17,24 +17,44 @@ class App extends Component {
   // }
   
   state = {
-    refresh: false
+    home: true,
+    parkinglot_status: false,
+    parkinglot2_status: false
   };
 
   refreshHomePage = () => {
-    console.log("REFRESHING HOME PAGE")
-    if(!this.state.refresh) {
-      this.setState({
-        refresh: !this.state.refresh
-      });
-      //his.renderHomePage();
-    } else {
 
-    }
+      this.setState({
+        home: true,
+        parkinglot_status: false,
+        parkinglot2_status: false
+      });
+
   }
 
+  refreshParkinglotPage = () => {
+
+    this.setState({
+      home: false,
+      parkinglot_status: true,
+      parkinglot2_status: false
+    });
+
+}
+
+refreshParkinglot2Page = () => {
+
+  this.setState({
+    home: false,
+    parkinglot_status: false,
+    parkinglot2_status: true
+  });
+
+}
+
   renderHomePage = () => {
-    console.log("RENDERING HOME PAGE")
-    console.log("this.state.refresh: " + this.state.refresh)
+    // console.log("RENDERING HOME PAGE")
+    // console.log("this.state.refresh: " + this.state.refresh)
 
     if (!this.state.refresh && ( window.location.href === "http://localhost:3000/" || window.location.href === "http://localhost:3000") ){
     console.log("returning home page")  
@@ -42,7 +62,7 @@ class App extends Component {
       src={"http://fatihtorun.net/wp-content/uploads/2018/05/utd-parking-seec-1-for-utd-map.png"} 
       alt={"utd parking map"}  />);
     } else {
-      console.log("return  null")  
+      // console.log("return  null")  
       return(null); 
     }
   }
@@ -52,14 +72,15 @@ class App extends Component {
       <div className="App" style={{backgroundColor: "#d1e0e0"}}>
 
         {/* {this.renderHomePage()} */}
-        {!this.state.refresh && <this.renderHomePage></this.renderHomePage>}
+        {this.state.home && <this.renderHomePage></this.renderHomePage>}
      
         <BrowserRouter>        
           <div>
           <Button 
             title="home"
             color="#841584"
-            accessibilityLabel="home"            
+            accessibilityLabel="home"   
+            onClick = {this.refreshHomePage}         
           >
           <Link to="/">home</Link>     
           </Button>
@@ -68,26 +89,23 @@ class App extends Component {
             title="parkinglot2"
             color="#841584"
             accessibilityLabel="parkinglot under construction"
-            onClick = {this.refreshHomePage}
+            onClick = {this.refreshParkinglot2Page}
           >
           <Link to="/components/ParkingLot2">parkingLot2</Link>   
-          {/* {this.forceUpdate()}   */}
+          
           </Button>
           
           <Button class = "btn1"
             title="parkinglot"
             color="#841584"
             accessibilityLabel="parkinglot"
+            onClick = {this.refreshParkinglotPage}
           >
           <Link to="/components/ParkingLot">parkingLot</Link>     
           </Button>
             <switch>
               <Route path="/components/ParkingLot" component= {ParkingLot} exact />
-              {/* {this.renderHomePage()} */}
-
               <Route path="/components/ParkingLot2" component= {ParkingLotUnderConstruction} /> 
-              {/* {this.renderHomePage()} */}
-
               {/* <Route path="/" component= {App} />  */}
             </switch>
             
