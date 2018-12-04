@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 from datetime import datetime
 import mysql.connector
 
@@ -21,9 +22,19 @@ import mysql.connector
 
 
 app = Flask(__name__)
+CORS(app)
 
 mock = [
-  { 'id': 1, 'isFull': True, 'lastUpdated': datetime.now()}
+  { 'id': 1, 'status': 1 },
+  { 'id': 2, 'status': 0 },
+  { 'id': 3, 'status': 0 },
+  { 'id': 4, 'status': 0 },
+  { 'id': 5, 'status': 0 },
+  { 'id': 6, 'status': 0 },
+  { 'id': 7, 'status': 0 },
+  { 'id': 8, 'status': 0 },
+  { 'id': 9, 'status': 0 },
+  { 'id': 10, 'status': 0 }
 ]
 
 # GET API status
@@ -42,11 +53,18 @@ def add_spot():
   mock.append(request.get_json())
   return '', 204
 
-# PUT endpoint for resetting all spot statuses
-@app.route('/spots?reset=true', methods=['PUT'])
+# PUT endpoint for resetting spot statuses
+@app.route('/spots', methods=['PUT'])
 def reset_spots():
-  # loop through and reset all spot statuses to isEmpty
-  # mock.append(request.get_json())
+  for spot in mock:
+    spot['status'] = 0
   return '', 204
 
-# TODO PUT endpoint for updating spot statuses: route='/spots/{spotId}?isFull=true'
+# PUT endpoint for updating individual spot statuses
+@app.route('/spots/<int:spotId>/<int:isFull>', methods=['PUT'])
+def update_spot(spotId, isFull):
+  for spot in mock:
+    if spot['id'] == spotId:
+      spot['status'] = isFull
+      return jsonify(spot), 204
+  return '', 404

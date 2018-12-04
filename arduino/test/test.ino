@@ -89,7 +89,7 @@ void loop()
   //String command = "curl -H \"Content-Type: application/json\" -X POST -d '{ \"id\" : 100 , \"isFull\" : true , \"topcateg\" : \"" + category + "\"}' http://192.168.43.24:5000/spots";
   //p.runShellCommand(command);
   //while (p.running());
-  delay(30);
+  delay(1000);
 
 }
 
@@ -101,7 +101,7 @@ bool isSpotFull(int x, int y) {
     int xMin = xcoordsMin[i];
     int xMax = xcoordsMax[i];
     
-    // Check that the bounding box is within tolerance range
+    // Check that the bounding box is within spot range
     if(xMin <= x && x <= xMax) {
       Serial.println("~~~~~~~~~~~~~~~~~~~~ SPOT IS FULL ~~~~~~~~~~~~~~~~~~~~");
       Serial.print("~~~~~~~~~~~~~~~~~~~~ Number = ");
@@ -116,15 +116,14 @@ bool isSpotFull(int x, int y) {
 
 void postSpot(String idStr) {
   Process p;
-  String command = "curl -H \"Content-Type: application/json\" -X POST -d '{ \"id\" : 100 , \"isFull\" : true , \"idStr\" : \"" + idStr + "\"}' http://192.168.43.24:5000/spots";
+  String command = "curl -H \"Content-Type: application/json\" -X PUT http://192.168.43.24:5000/spots/" + idStr + "/1";
   p.runShellCommand(command);
   while (p.running());
 }
 
 void postReset() {
-  String reset = "reset";
   Process p;
-  String command = "curl -H \"Content-Type: application/json\" -X POST -d '{ \"id\" : 100 , \"isFull\" : true , \"idStr\" : \"" + reset + "\"}' http://192.168.43.24:5000/spots";
+  String command = "curl -H \"Content-Type: application/json\" -X PUT http://192.168.43.24:5000/spots";
   p.runShellCommand(command);
   while (p.running());
 }
