@@ -8,10 +8,14 @@ import Spots4 from './Spots4';
 import Spots5 from './Spots5';
 import {BrowserRouter, Route, NavLink} from "react-router-dom";
 import { Rect, Stage, Layer, Text} from 'react-konva';
+import axios from 'axios';
 
 class ParkingLot extends Component {
-  // (await axios.get('http://localhost:8081/')).data;
-  state = {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
       parkingSpots1: [
         {id:1, status:0},
         {id:2, status:1},
@@ -25,18 +29,7 @@ class ParkingLot extends Component {
         {id:10, status:0}
       ],   
       
-      parkingSpots2: [
-        {id:1, status:0},
-        {id:2, status:1},
-        {id:3, status:1},
-        {id:4, status:0},
-        {id:5, status:0},
-        {id:6, status:1},
-        {id:7, status:0},
-        {id:8, status:0},
-        {id:9, status:0},
-        {id:10, status:0}
-      ],
+      parkingSpots2: null,
       
       parkingSpots3: [
         {id:1, status:0},
@@ -76,9 +69,29 @@ class ParkingLot extends Component {
         {id:9, status:0},
         {id:10, status:0}
       ]
-  };
+    };
+  }
+
+  async componentDidMount() {
+    console.log("TEST TEST TEST TEST TEST TEST TEST TEST TEST");
+    var self = this;
+    axios.get('http://localhost:5000/spots')
+      .then(function(response) {
+        console.log("PROMISE FULFILLED !!!!!!!");
+        console.log(response);
+        self.setState({
+          parkingSpots2: response.data,
+        });
+        console.log("STATE HAS BEEN SET !!!!!!!!!");
+      })
+      .catch(function (error) {
+        console.log("error!!!!!");
+        console.log(error);
+      });
+  }
 
   render() {
+
     //{this.forceUpdate()}
     return (
       // <div className="ParkingLot" style={{backgroundColor: "#d1e0e0"}}>
@@ -89,8 +102,8 @@ class ParkingLot extends Component {
               return <Spots1 Id = {i.id} Status = {i.status} />
             })
           }
-          {
-            this.state.parkingSpots2.map((i) => {
+          { 
+            this.state.parkingSpots2 && this.state.parkingSpots2.map((i) => {
               return <Spots2 Id = {i.id} Status = {i.status} />
             })
           }

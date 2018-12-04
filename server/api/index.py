@@ -1,28 +1,39 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 import mysql.connector
 
 ###### Testing MySQL ######
-db = mysql.connector.connect(
-  host="localhost",
-  user="testuser",
-  passwd="testuserpassword123",
-  database="test"
-)
+# db = mysql.connector.connect(
+#   host="localhost",
+#   user="testuser",
+#   passwd="testuserpassword123",
+#   database="test"
+# )
 
-cursor = db.cursor(buffered=True)
-cursor.execute("SELECT * FROM spots")
+# cursor = db.cursor(buffered=True)
+# cursor.execute("SELECT * FROM spots")
 
-for (id, isFull, lastUpdated) in cursor:
-  print("Spot {} isFull={} Last Updated on {:%d %b %Y}".format(
-    id, isFull, lastUpdated))
+# for (id, isFull, lastUpdated) in cursor:
+#   print("Spot {} isFull={} Last Updated on {:%d %b %Y}".format(
+#     id, isFull, lastUpdated))
 ###### Testing MySQL ######
 
 
 
 app = Flask(__name__)
+CORS(app)
 
 mock = [
-  { 'lotId': 1, 'locationId': 1, 'spotId': 1, 'isFull': True }
+  { 'id': 1, 'status': 1 },
+  { 'id': 2, 'status': 0 },
+  { 'id': 3, 'status': 0 },
+  { 'id': 4, 'status': 0 },
+  { 'id': 5, 'status': 0 },
+  { 'id': 6, 'status': 0 },
+  { 'id': 7, 'status': 0 },
+  { 'id': 8, 'status': 0 },
+  { 'id': 9, 'status': 0 },
+  { 'id': 10, 'status': 0 }
 ]
 
 # GET API status
