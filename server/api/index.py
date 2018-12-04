@@ -52,4 +52,18 @@ def add_spot():
   mock.append(request.get_json())
   return '', 204
 
-# TODO PUT endpoint for updating spot statuses: route='/spots/{spotId}?isFull=true'
+# PUT endpoint for resetting spot statuses
+@app.route('/spots', methods=['PUT'])
+def reset_spots():
+  for spot in mock:
+    spot['status'] = 0
+  return '', 204
+
+# PUT endpoint for updating individual spot statuses
+@app.route('/spots/<int:spotId>/<int:isFull>', methods=['PUT'])
+def update_spot(spotId, isFull):
+  for spot in mock:
+    if spot['id'] == spotId:
+      spot['status'] = isFull
+      return jsonify(spot), 204
+  return '', 404
