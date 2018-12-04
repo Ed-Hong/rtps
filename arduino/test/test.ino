@@ -36,6 +36,14 @@ void setup()
 void loop()
 { 
   postReset();
+
+  //debug - testing the curl requests work
+//  postSpot("1");
+//  postSpot("2");
+//  postSpot("3");
+//  postSpot("5");
+//  postSpot("7");
+  
   
   byte len = mySerial.readBytesUntil('\n', instr, INLEN);
 
