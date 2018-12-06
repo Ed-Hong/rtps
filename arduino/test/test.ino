@@ -106,6 +106,7 @@ bool isSpotFull(int x, int y) {
       Serial.println("~~~~~~~~~~~~~~~~~~~~ SPOT IS FULL ~~~~~~~~~~~~~~~~~~~~");
       Serial.print("~~~~~~~~~~~~~~~~~~~~ Number = ");
       char str[16];
+      int id = i + 5;
       itoa(i, str, 10);
       Serial.println(str);
 
