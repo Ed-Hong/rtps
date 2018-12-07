@@ -28,13 +28,13 @@ mock = [
   { 'id': 1, 'status': 1 },
   { 'id': 2, 'status': 1 },
   { 'id': 3, 'status': 1 },
-  { 'id': 4, 'status': 0 },
-  { 'id': 5, 'status': 0 },
-  { 'id': 6, 'status': 0 },
-  { 'id': 7, 'status': 0 },
-  { 'id': 8, 'status': 0 },
-  { 'id': 9, 'status': 0 },
-  { 'id': 10, 'status': 0 }
+  { 'id': 4, 'status': 0 }
+        #{ 'id': 5, 'status': 0 },
+        #{ 'id': 6, 'status': 0 },
+        #{ 'id': 7, 'status': 0 },
+        #{ 'id': 8, 'status': 0 },
+        #{ 'id': 9, 'status': 0 },
+        #{ 'id': 10, 'status': 0 }
 ]
 
 # GET API status

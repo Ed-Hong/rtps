@@ -16,7 +16,9 @@ class ParkingLot extends Component {
     super(props);
 
     this.state = {
-      parkingSpots1: [
+      parkingSpots1: null,
+      
+      parkingSpots2: [
         {id:1, status:0},
         {id:2, status:1},
         {id:3, status:1},
@@ -28,9 +30,6 @@ class ParkingLot extends Component {
         {id:9, status:0},
         {id:10, status:0}
       ],   
-      
-      parkingSpots2: null,
-      
       parkingSpots3: [
         {id:1, status:0},
         {id:2, status:1},
@@ -72,6 +71,24 @@ class ParkingLot extends Component {
     };
   }
 
+  // async componentDidMount() {
+  //   console.log("TEST TEST TEST TEST TEST TEST TEST TEST TEST");
+  //   var self = this;
+  //   axios.get('http://localhost:5000/spots')
+  //     .then(function(response) {
+  //       console.log("PROMISE FULFILLED !!!!!!!");
+  //       console.log(response);
+  //       self.setState({
+  //         parkingSpots2: response.data,
+  //       });
+  //       console.log("STATE HAS BEEN SET !!!!!!!!!");
+  //     })
+  //     .catch(function (error) {
+  //       console.log("error!!!!!");
+  //       console.log(error);
+  //     });
+  // }
+
   async componentDidMount() {
     console.log("TEST TEST TEST TEST TEST TEST TEST TEST TEST");
     var self = this;
@@ -80,7 +97,7 @@ class ParkingLot extends Component {
         console.log("PROMISE FULFILLED !!!!!!!");
         console.log(response);
         self.setState({
-          parkingSpots2: response.data,
+          parkingSpots1: response.data,
         });
         console.log("STATE HAS BEEN SET !!!!!!!!!");
       })
@@ -96,10 +113,16 @@ class ParkingLot extends Component {
     return (
       // <div className="ParkingLot" style={{backgroundColor: "#d1e0e0"}}>
       //<body onload="timer = setTimeout('auto_reload()',10000);">
+      <>
+      <div>
+      <head>
+        <meta http-equiv="refresh" content="10"></meta>
+      </head>
+      </div>
       <Stage width={window.innerWidth} height = {window.innerHeight} >
         <Layer>
           {
-            this.state.parkingSpots1.map((i) => {
+            this.state.parkingSpots1 && this.state.parkingSpots1.map((i) => {
               return <Spots1 Id = {i.id} Status = {i.status} />
             })
           }
@@ -129,7 +152,7 @@ class ParkingLot extends Component {
           {/* //{this.forceUpdate()} */}
         </Layer>
       </Stage>
-      //</body>
+      </>
     
       
       

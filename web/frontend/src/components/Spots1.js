@@ -15,23 +15,6 @@ class Spots1 extends Component {
         };
     };
 
-    // makeFull = () => {
-    //     this.setState(
-    //         {
-    //             id: this.ID,
-    //             color: 'red'
-    //         }
-    //     )
-    // };
-
-    // makeEmpty = () => {
-    //     this.setState(
-    //         {
-    //             id: this.ID,
-    //             color: 'green'
-    //         }
-    //     )
-    // };
 
     render() {
 
@@ -43,10 +26,15 @@ class Spots1 extends Component {
                 y={30}
                 width={50}
                 height={50}
-                fill={"grey"}
+                fill={this.state.color}
                 shadowBlur={5}
             />
+            <Text x={this.state.id*60+100+2}
+                y={30-7}
+                text={this.state.text}
+                fontSize="67" />
             </>
+            
         );
 
     };

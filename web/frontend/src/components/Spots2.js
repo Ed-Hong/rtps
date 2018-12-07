@@ -25,13 +25,13 @@ class Spots2 extends Component {
                 y={Math.ceil((this.state.id)/2)*60 + 60}
                 width={50}
                 height={50}
-                fill={this.state.color}
+                fill={"grey"}
                 shadowBlur={5}
             />
-            <Text x={((this.state.id+1)%2)*60+60+350+2}
+           {/* <Text x={((this.state.id+1)%2)*60+60+350+2}
                 y={Math.ceil((this.state.id)/2)*60 + 60-7}
                 text={this.state.text}
-                fontSize="67" />
+                fontSize="67" /> */}
             </>
         );
 

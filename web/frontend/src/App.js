@@ -69,12 +69,7 @@ refreshParkinglot2Page = () => {
   render() {
 
     return (
-	<>
-	<div>
-	<head>
-		<meta http-equiv="refresh" content="10"></meta>
-	</head>
-	</div>
+
       <div className="App" style={{backgroundColor: "#d1e0e0"}}>
 
         {/* {this.renderHomePage()} */}
@@ -122,7 +117,7 @@ refreshParkinglot2Page = () => {
      
       </div>
 		
-		</>
+	
     );
   }
 }
