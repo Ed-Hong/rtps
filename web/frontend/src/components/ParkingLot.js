@@ -95,6 +95,7 @@ class ParkingLot extends Component {
     //{this.forceUpdate()}
     return (
       // <div className="ParkingLot" style={{backgroundColor: "#d1e0e0"}}>
+      //<body onload="timer = setTimeout('auto_reload()',10000);">
       <Stage width={window.innerWidth} height = {window.innerHeight} >
         <Layer>
           {
@@ -128,7 +129,7 @@ class ParkingLot extends Component {
           {/* //{this.forceUpdate()} */}
         </Layer>
       </Stage>
-      
+      //</body>
     
       
       
